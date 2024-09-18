@@ -1,0 +1,27 @@
+package templates
+
+templ Index() {
+	<html>
+		@BaseHeader("The Sullivan Code Blog")
+		<body>
+			@Title("The Sullivan Code Blog")
+			@WelcomeMessage()
+		</body>
+	</html>
+}
+
+templ Title(title string) {
+	<h1>{ title }</h1>
+}
+
+templ WelcomeMessage() {
+	<h2>Welcome to to The Sullivan Code Blog!</h2>
+	<p>
+		I started this website to be a personal notepad, an online resume, and a
+		guide to help others. I am passionate about learning and have made it my
+		mission to share that knowledge. I hope that my works both inspire you to
+		take on your own projects, and also provides you with information that is
+		both useful and fun.
+	</p>
+	<p>--Richard Sullivan</p>
+}

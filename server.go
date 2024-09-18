@@ -4,15 +4,16 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates"
+	"github.com/a-h/templ"
 )
 
-type Page struct {
-	Title string
-	Body  []byte
-}
-
 func main() {
+	component := templates.Index()
+	http.Handle("/", templ.Handler(component))
+
 	fmt.Println("starting server...")
 	log.Fatal(
-		http.ListenAndServe(":8080", http.FileServer(http.Dir("/var/www/Richard-M-Sullivan.github.io"))))
+		http.ListenAndServe(":8080", nil))
 }
