@@ -4,26 +4,28 @@ templ Index() {
 <html>
 @BaseHeader("The Sullivan Code Blog")
 
-<body class="bg-black">
-  @Title("The Sullivan Code Blog")
-  @WelcomeMessage()
+<body class="bg-slate-800 flex sm:justify-center sm:items-center">
+  <div class="bg-slate-900 sm:w-[640] sm:mt-10 shadow-2xl shadow-black rounded-md">
+    @Title("The Sullivan Code Blog")
+    @WelcomeMessage()
+  </div>
 </body>
 
 </html>
 }
 
 templ Title(title string) {
-<h1>{ title }</h1>
+<h1 class="text-orange-500 mx-10 mt-5 mb-10 font-bold">{ title }</h1>
 }
 
 templ WelcomeMessage() {
-<h2 class="text-red-800">Welcome to to The Sullivan Code Blog!</h2>
-<p>
+<h2 class="text-slate-300 italic font-bold text-left mx-10 my-5">Welcome to to The Sullivan Code Blog!</h2>
+<p class="text-slate-400 text-left mx-10 my-5">
   I started this website to be a personal notepad, an online resume, and a
   guide to help others. I am passionate about learning and have made it my
   mission to share that knowledge. I hope that my works both inspire you to
   take on your own projects, and also provides you with information that is
   both useful and fun.
 </p>
-<p>--Richard Sullivan</p>
+<p class="text-slate-400 text-left mx-10 my-5">--Richard Sullivan</p>
 }
