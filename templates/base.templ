@@ -1,8 +1,10 @@
 package templates
 
 templ BaseHeader(title string) {
-	<head>
-		<title>{ title }</title>
-		<script src="./htmx.min.js"></script>
-	</head>
+
+<head>
+  <title>{ title }</title>
+  <script src="/htmx.min.js"></script>
+  <link rel="stylesheet" href="/styles/output.css" />
+</head>
 }

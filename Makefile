@@ -1,5 +1,6 @@
 .PHONY: run
 
 run:
-	@ templ generate
-	@ go run server.go
+	@templ generate
+	@tailwindcss -i ./input.css -o ./styles/output.css
+	@go run server.go
