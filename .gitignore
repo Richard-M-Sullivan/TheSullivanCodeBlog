@@ -24,6 +24,3 @@ go.sum
 
 # env file
 .env
-
-# templ stuff
-templates/*.go
