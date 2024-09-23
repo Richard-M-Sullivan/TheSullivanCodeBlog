@@ -597,10 +597,6 @@ video {
   justify-content: space-around;
 }
 
-.place-self-center {
-  place-self: center;
-}
-
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -698,6 +694,10 @@ video {
 
   .sm\:justify-center {
     justify-content: center;
+  }
+
+  .sm\:place-self-center {
+    place-self: center;
   }
 
   .sm\:rounded-br-3xl {
