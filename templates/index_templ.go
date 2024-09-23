@@ -41,7 +41,7 @@ func Index() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"h-full bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -68,6 +68,10 @@ func Index() templ.Component {
 				return templ_7745c5c3_Err
 			})
 			templ_7745c5c3_Err = ContentSection().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = Footer().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -106,7 +110,7 @@ func WelcomeMessage() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h2 class=\"text-slate-300 italic font-bold text-left mx-10 my-5\">Welcome to to The Sullivan Code Blog!</h2><p class=\"text-slate-400 text-left mx-10 my-5\">I started this website to be a personal notepad, an online resume, and a guide to help others. I am passionate about learning and have made it my mission to share that knowledge. I hope that my works both inspire you to take on your own projects, and also provides you with information that is both useful and fun.</p><p class=\"text-slate-400 text-left mx-10 my-5\">-- Richard Sullivan</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h2 class=\"text-slate-300 italic font-bold text-left mx-10 my-5\">Welcome to to The Sullivan Code Blog!</h2><p class=\"text-slate-400 text-left mx-10 my-5\">I started this website to be a personal notepad, online resume, and guide to help others. I am passionate about learning and have made it my mission to share that knowledge. I hope that my works serve you as a useful and fun resource on your learning journey.<br><br>-- Richard Sullivan</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

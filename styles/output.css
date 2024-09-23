@@ -568,6 +568,10 @@ video {
   margin-top: 2.5rem;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .flex {
   display: flex;
 }
@@ -579,6 +583,10 @@ video {
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-full {
@@ -595,6 +603,10 @@ video {
 
 .justify-around {
   justify-content: space-around;
+}
+
+.self-end {
+  align-self: flex-end;
 }
 
 .rounded-lg {
