@@ -1,10 +1,40 @@
 package templates
 
 templ BaseHeader(title string) {
+<html>
 
 <head>
   <title>{ title }</title>
   <script src="/htmx.min.js"></script>
   <link rel="stylesheet" href="/styles/output.css" />
 </head>
+{ children... }
+
+</html>
+}
+
+templ Navigation() {
+<nav class="grid sm:w-full sm:grid-cols-3 text-orange-500">
+  <div class="p-4 w-full bg-slate-900 place-self-center sm:rounded-br-3xl">
+    <h1 class="text-center text-3xl md:text-4xl lg:text-5xl">
+      The Sullivan
+      <br class="sm:visible" />
+      Code Blog
+    </h1>
+  </div>
+  <div class="bg-slate-800 flex justify-around w-full sm:col-span-2">
+    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Blog</a>
+    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Projects</a>
+    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Donate</a>
+    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Resume</a>
+    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Notes</a>
+    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Tutorials</a>
+  </div>
+</nav>
+}
+
+templ ContentSection() {
+<div class="bg-slate-950 rounded-lg sm:w-[640] mt-10 ">
+  { children... }
+</div>
 }

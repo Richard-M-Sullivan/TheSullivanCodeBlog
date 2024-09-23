@@ -5,18 +5,20 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates"
+	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/handlers"
 )
 
 func main() {
-	indexHandler := func(w http.ResponseWriter, r *http.Request) {
-		component := templates.Index()
-		component.Render(r.Context(), w)
-	}
-
+	// mux to hold handlers
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", indexHandler)
-	mux.Handle("/styles/", http.FileServer(http.Dir(".")))
+
+	// setting the route handlers
+	mux.Handle("/", http.HandlerFunc(handlers.IndexHandler))
+
+	// file server for static content
+	cssDir := http.Dir("./styles/")
+	cssFS := http.FileServer(cssDir)
+	mux.Handle("/styles/", http.StripPrefix("/styles/", cssFS))
 
 	fmt.Println("starting server...")
 	log.Fatal(

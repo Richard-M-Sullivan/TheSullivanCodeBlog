@@ -1,21 +1,15 @@
 package templates
 
 templ Index() {
-<html>
-@BaseHeader("The Sullivan Code Blog")
+@BaseHeader("The Sullivan Code Blog") {
 
-<body class="bg-slate-800 flex sm:justify-center sm:items-center">
-  <div class="bg-slate-900 sm:w-[640] sm:mt-10 shadow-2xl shadow-black rounded-md">
-    @Title("The Sullivan Code Blog")
-    @WelcomeMessage()
-  </div>
+<body class="bg-slate-800 flex flex-col sm:justify-center sm:items-center">
+  @Navigation()
+  @ContentSection() {
+  @WelcomeMessage()
+  }
 </body>
-
-</html>
 }
-
-templ Title(title string) {
-<h1 class="text-orange-500 mx-10 mt-5 mb-10 font-bold">{ title }</h1>
 }
 
 templ WelcomeMessage() {
@@ -27,5 +21,5 @@ templ WelcomeMessage() {
   take on your own projects, and also provides you with information that is
   both useful and fun.
 </p>
-<p class="text-slate-400 text-left mx-10 my-5">--Richard Sullivan</p>
+<p class="text-slate-400 text-left mx-10 my-5">-- Richard Sullivan</p>
 }
