@@ -41,7 +41,7 @@ func Index() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"bg-slate-800 flex flex-col sm:justify-center sm:items-center\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body class=\"bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
