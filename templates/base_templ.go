@@ -36,7 +36,7 @@ func BaseHeader(title string) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/base.templ`, Line: 7, Col: 16}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/base.templ`, Line: 6, Col: 17}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -79,7 +79,7 @@ func Navigation() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav class=\"grid sm:w-full sm:grid-cols-3 text-orange-500\"><div class=\"p-4 w-full bg-slate-900 sm:place-self-center sm:rounded-br-3xl\"><h1 class=\"text-center text-3xl md:text-4xl lg:text-5xl\">The Sullivan<br>Code Blog</h1></div><div class=\"bg-slate-800 flex justify-around w-full sm:col-span-2\"><a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\">Blog</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\">Projects</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\">Donate</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\">Resume</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\">Notes</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\">Tutorials</a></div></nav>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav class=\"mb-20 grid sm:w-full sm:grid-cols-3 text-orange-500\"><div class=\"p-4 w-full bg-slate-900 sm:place-self-center sm:rounded-br-3xl\"><h1 class=\"text-center text-3xl md:text-4xl lg:text-5xl\"><a href=\"/\">The Sullivan<br>Code Blog</a></h1></div><div class=\"bg-slate-800 flex justify-around w-full sm:col-span-2\"><a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"/blog\">Blog</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"/project\">Projects</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"/tutorial\">Tutorials</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"/note\">Notes</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"/resume\">Resume</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"/support\">Support</a></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -108,7 +108,7 @@ func ContentSection() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"bg-slate-950 rounded-lg sm:w-[640] mt-10 \">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"bg-slate-950 mb-20 rounded-lg sm:w-[640]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

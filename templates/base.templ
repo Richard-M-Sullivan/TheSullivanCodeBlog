@@ -1,55 +1,71 @@
 package templates
 
 templ BaseHeader(title string) {
-<html>
-
-<head>
-  <title>{ title }</title>
-  <script src="/htmx.min.js"></script>
-  <link rel="stylesheet" href="/styles/output.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8" />
-</head>
-{ children... }
-
-</html>
+	<html>
+		<head>
+			<title>{ title }</title>
+			<script src="/htmx.min.js"></script>
+			<link rel="stylesheet" href="/styles/output.css"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<meta charset="utf-8"/>
+		</head>
+		{ children... }
+	</html>
 }
 
 templ Navigation() {
-<nav class="grid sm:w-full sm:grid-cols-3 text-orange-500">
-  <div class="p-4 w-full bg-slate-900 sm:place-self-center sm:rounded-br-3xl">
-    <h1 class="text-center text-3xl md:text-4xl lg:text-5xl">
-      The Sullivan
-      <br />
-      Code Blog
-    </h1>
-  </div>
-  <div class="bg-slate-800 flex justify-around w-full sm:col-span-2">
-    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Blog</a>
-    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Projects</a>
-    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Donate</a>
-    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Resume</a>
-    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Notes</a>
-    <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center">Tutorials</a>
-  </div>
-</nav>
+	<nav class="mb-20 grid sm:w-full sm:grid-cols-3 text-orange-500">
+		<div class="p-4 w-full bg-slate-900 sm:place-self-center sm:rounded-br-3xl">
+			<h1 class="text-center text-3xl md:text-4xl lg:text-5xl">
+				<a href="/">
+					The Sullivan
+					<br/>
+					Code Blog
+				</a>
+			</h1>
+		</div>
+		<div class="bg-slate-800 flex justify-around w-full sm:col-span-2">
+			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/blog">
+				Blog
+			</a>
+			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/project">
+				Projects
+			</a>
+			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/tutorial">
+				Tutorials
+			</a>
+			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/note">
+				Notes
+			</a>
+			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/resume">
+				Resume
+			</a>
+			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/support">
+				Support
+			</a>
+		</div>
+	</nav>
 }
 
 templ ContentSection() {
-<div class="bg-slate-950 rounded-lg sm:w-[640] mt-10 ">
-  { children... }
-</div>
+	<div class="bg-slate-950 mb-20 rounded-lg sm:w-[640]">
+		{ children... }
+	</div>
 }
 
 templ Footer() {
-<footer class="mt-auto self-end text-orange-500 bg-slate-800 flex justify-around w-full">
-  <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
-    href="https://github.com/Richard-M-Sullivan">
-    Github
-  </a>
-  <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
-    href="https://www.linkedin.com/in/richard-sullivan-967182233/">
-    Linkedin
-  </a>
-</footer>
+	<footer class="mt-auto self-end text-orange-500 bg-slate-800 flex justify-around w-full">
+		<a
+			class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
+			href="https://github.com/Richard-M-Sullivan"
+		>
+			Github
+		</a>
+		<a
+			class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
+			href="https://www.linkedin.com/in/richard-sullivan-967182233/"
+		>
+			Linkedin
+		</a>
+	</footer>
 }
