@@ -110,7 +110,7 @@ func WelcomeMessage() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h2 class=\"text-slate-300 italic font-bold text-left mx-10 my-5\">Welcome to to The Sullivan Code Blog!</h2><p class=\"text-slate-400 text-left mx-10 my-5\">I started this website to be a personal notepad, online resume, and guide to help others. I am passionate about learning and have made it my mission to share that knowledge. I hope that my works serve you as a useful and fun resource on your learning journey.<br><br>-- Richard Sullivan</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"grid\"><section><h2 class=\"text-slate-300 italic font-bold text-left mx-10 my-5\">Welcome to to The Sullivan Code Blog!</h2><p class=\"text-slate-400 text-left mx-10 my-5\">I started this website to be a personal notepad, online resume, and guide to help others. I am passionate about learning and have made it my mission to share that knowledge. I hope that my works serve you as a useful and fun resource on your learning journey.<br><br>-- Richard Sullivan</p></section><img href=\"/media/portrait.png\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
