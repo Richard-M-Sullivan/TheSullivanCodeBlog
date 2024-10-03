@@ -602,8 +602,16 @@ video {
   height: 100%;
 }
 
+.min-h-svh {
+  min-height: 100svh;
+}
+
 .w-full {
   width: 100%;
+}
+
+.w-svw {
+  width: 100svw;
 }
 
 .max-w-40 {
@@ -807,6 +815,10 @@ video {
 
   .sm\:items-center {
     align-items: center;
+  }
+
+  .sm\:justify-start {
+    justify-content: flex-start;
   }
 
   .sm\:justify-center {

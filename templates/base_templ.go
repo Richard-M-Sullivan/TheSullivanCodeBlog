@@ -36,7 +36,7 @@ func BaseHeader(title string) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/base.templ`, Line: 7, Col: 17}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/base.templ`, Line: 8, Col: 16}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -145,7 +145,7 @@ func Footer() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<footer class=\"mt-auto self-end text-orange-500 bg-slate-800 flex justify-around w-full\"><a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"https://github.com/Richard-M-Sullivan\">Github</a> <a class=\"transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"https://www.linkedin.com/in/richard-sullivan-967182233/\">Linkedin</a></footer>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<footer class=\"p-2 mt-auto self-end text-orange-500 bg-slate-900 flex justify-around w-svw\"><a class=\"rounded-md transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"https://github.com/Richard-M-Sullivan\">Github</a> <a class=\"rounded-md transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"https://www.linkedin.com/in/richard-sullivan-967182233/\">Linkedin</a></footer>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
