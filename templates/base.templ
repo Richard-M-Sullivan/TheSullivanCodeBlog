@@ -1,96 +1,81 @@
 package templates
 
 templ BaseHeader(title string) {
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<title>{ title }</title>
-			<script src="/htmx/htmx.min.js"></script>
-			<link rel="stylesheet" href="/styles/output.css"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<meta charset="utf-8"/>
-		</head>
-		{ children... }
-	</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{ title }</title>
+  <script src="/htmx/htmx.min.js"></script>
+  <link rel="stylesheet" href="/styles/output.css" />
+  <!meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+</head>
+{ children... }
+
+</html>
 }
 
 templ Navigation() {
-	<nav class="w-full grid sm:grid-cols-3">
-		<div class="py-5 bg-slate-900 sm:rounded-br-3xl">
-			<a href="/" class="ring-yellow-600">
-				<h1 class="text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl">
-					The Sullivan
-				</h1>
-				<h1 class="text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl">
-					Code Blog
-				</h1>
-			</a>
-		</div>
-		<div class="bg-slate-900 flex flex-col sm:col-span-2">
-			<div class="p-2 bg-slate-900 flex flex-row justify-around">
-				<a
-					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/blog"
-				>
-					Blog
-				</a>
-				<a
-					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/project"
-				>
-					Projects
-				</a>
-				<a
-					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/tutorial"
-				>
-					Tutorials
-				</a>
-				<a
-					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/note"
-				>
-					Notes
-				</a>
-				<a
-					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/resume"
-				>
-					Resume
-				</a>
-				<a
-					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700 "
-					href="/support"
-				>
-					Support
-				</a>
-			</div>
-			<div class="bg-slate-800 rounded-tl-3xl flex-grow "></div>
-		</div>
-	</nav>
+<nav class="w-full grid sm:grid-cols-3">
+  <div class="py-5 bg-slate-900 sm:rounded-br-3xl">
+    <a href="/" class="ring-yellow-600">
+      <h1 class="text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl">
+        The Sullivan
+      </h1>
+      <h1 class="text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl">
+        Code Blog
+      </h1>
+    </a>
+  </div>
+  <div class="bg-slate-900 flex flex-col sm:col-span-2">
+    <div class="p-2 bg-slate-900 flex flex-row justify-around">
+      <a class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+        href="/blog">
+        Blog
+      </a>
+      <a class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+        href="/project">
+        Projects
+      </a>
+      <a class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+        href="/tutorial">
+        Tutorials
+      </a>
+      <a class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+        href="/note">
+        Notes
+      </a>
+      <a class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+        href="/resume">
+        Resume
+      </a>
+      <a class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700 "
+        href="/support">
+        Support
+      </a>
+    </div>
+    <div class="bg-slate-800 rounded-tl-3xl flex-grow "></div>
+  </div>
+</nav>
 }
 
 templ ContentSection() {
-	<div
-		class="ring ring-orange-500 shadow-2xl shadow-black mx-1 my-5 p-2 sm:self-center bg-slate-950 self-stretch rounded-lg sm:m-10 sm:w-[640]"
-	>
-		{ children... }
-	</div>
+<div
+  class="ring ring-orange-500 shadow-2xl shadow-black mx-1 my-5 p-2 sm:self-center bg-slate-950 self-stretch rounded-lg sm:m-10 sm:w-[640]">
+  { children... }
+</div>
 }
 
 templ Footer() {
-	<footer class="mt-auto self-end text-orange-500 bg-slate-800 flex justify-around w-full">
-		<a
-			class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
-			href="https://github.com/Richard-M-Sullivan"
-		>
-			Github
-		</a>
-		<a
-			class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
-			href="https://www.linkedin.com/in/richard-sullivan-967182233/"
-		>
-			Linkedin
-		</a>
-	</footer>
+<footer class="mt-auto self-end text-orange-500 bg-slate-800 flex justify-around w-full">
+  <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
+    href="https://github.com/Richard-M-Sullivan">
+    Github
+  </a>
+  <a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center"
+    href="https://www.linkedin.com/in/richard-sullivan-967182233/">
+    Linkedin
+  </a>
+</footer>
 }
