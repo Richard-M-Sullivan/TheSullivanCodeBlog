@@ -25,9 +25,14 @@ func main() {
 	cssDir := http.Dir("./styles/")
 	cssFS := http.FileServer(cssDir)
 	mux.Handle("/styles/", http.StripPrefix("/styles/", cssFS))
+
 	mediaDir := http.Dir("./media/")
 	mediaFS := http.FileServer(mediaDir)
 	mux.Handle("/media/", http.StripPrefix("/media/", mediaFS))
+
+	htmxDir := http.Dir("./htmx")
+	htmxFS := http.FileServer(htmxDir)
+	mux.Handle("/htmx/", http.StripPrefix("/htmx/", htmxFS))
 
 	fmt.Println("starting server...")
 	log.Fatal(
