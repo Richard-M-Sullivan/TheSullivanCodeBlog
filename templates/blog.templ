@@ -1,17 +1,19 @@
 package templates
 
 templ Blog() {
-	@BaseHeader("TSCB Blog") {
-		<body class="h-full bg-slate-800 flex flex-col justify-start sm:items-center">
-			@Navigation()
-			@Footer()
-		</body>
-	}
+@BaseHeader("TSCB Blog") {
+
+<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
+  @Navigation()
+  <main class="flex-grow justify-start"></main>
+  @Footer()
+</body>
+}
 }
 
 templ Filler() {
-	<div>
-		<h1>This is filler</h1>
-		<h2>Really... It is just filler</h2>
-	</div>
+<div>
+  <h1>This is filler</h1>
+  <h2>Really... It is just filler</h2>
+</div>
 }
