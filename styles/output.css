@@ -797,8 +797,8 @@ video {
     display: none;
   }
 
-  .sm\:w-\[640\] {
-    width: 640;
+  .sm\:w-\[640px\] {
+    width: 640px;
   }
 
   .sm\:grid-cols-3 {
