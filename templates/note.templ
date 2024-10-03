@@ -4,7 +4,23 @@ templ Note() {
 	@BaseHeader("TSCB Notes") {
 		<body class="h-full bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center">
 			@Navigation()
+			@NoteList()
 			@Footer()
 		</body>
+	}
+}
+
+templ NoteList() {
+	@ContentSection() {
+		<button class="text-orange-500 underline">+ Useful Links</button>
+	}
+	@ContentSection() {
+		<button class="text-orange-500 underline">+ Python</button>
+	}
+	@ContentSection() {
+		<button class="text-orange-500 underline">+ C</button>
+	}
+	@ContentSection() {
+		<button class="text-orange-500 underline">+ GoLang</button>
 	}
 }

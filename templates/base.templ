@@ -14,41 +14,65 @@ templ BaseHeader(title string) {
 }
 
 templ Navigation() {
-	<nav class="mb-20 grid sm:w-full sm:grid-cols-3 text-orange-500">
-		<div class="p-4 w-full bg-slate-900 sm:place-self-center sm:rounded-br-3xl">
-			<h1 class="text-center text-3xl md:text-4xl lg:text-5xl">
-				<a href="/">
+	<nav class="w-full grid sm:grid-cols-3">
+		<div class="py-5 bg-slate-900 sm:rounded-br-3xl">
+			<a href="/" class="ring-yellow-600">
+				<h1 class="text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl">
 					The Sullivan
-					<br/>
+				</h1>
+				<h1 class="text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl">
 					Code Blog
-				</a>
-			</h1>
+				</h1>
+			</a>
 		</div>
-		<div class="bg-slate-800 flex justify-around w-full sm:col-span-2">
-			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/blog">
-				Blog
-			</a>
-			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/project">
-				Projects
-			</a>
-			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/tutorial">
-				Tutorials
-			</a>
-			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/note">
-				Notes
-			</a>
-			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/resume">
-				Resume
-			</a>
-			<a class="transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center" href="/support">
-				Support
-			</a>
+		<div class="bg-slate-900 flex flex-col sm:col-span-2">
+			<div class="p-2 bg-slate-900 flex flex-row justify-around">
+				<a
+					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+					href="/blog"
+				>
+					Blog
+				</a>
+				<a
+					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+					href="/project"
+				>
+					Projects
+				</a>
+				<a
+					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+					href="/tutorial"
+				>
+					Tutorials
+				</a>
+				<a
+					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+					href="/note"
+				>
+					Notes
+				</a>
+				<a
+					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
+					href="/resume"
+				>
+					Resume
+				</a>
+				<a
+					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700 "
+					href="/support"
+				>
+					Support
+				</a>
+			</div>
+			<div class="bg-slate-800 rounded-tl-3xl flex-grow "></div>
 		</div>
 	</nav>
 }
 
 templ ContentSection() {
-	<div class="bg-slate-950 mb-20 rounded-lg sm:w-[640]">
+	<div
+		class="ring ring-orange-500 shadow-2xl shadow-black mx-1 my-5 p-2 sm:self-center bg-slate-950 self-stretch rounded-lg sm:m-10 sm:w-[640]"
+	>
 		{ children... }
 	</div>
 }
