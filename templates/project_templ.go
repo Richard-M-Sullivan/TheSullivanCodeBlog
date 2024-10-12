@@ -118,7 +118,7 @@ func ComputerProjectClosed() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-get=\"/project/open/computer\" hx-swap=\"outerHTML transition:true\" hx-trigger=\"click\"><p class=\"text-orange-500 hover:underline\">Homebrew Computer</p></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-get=\"/project/open/computer\" hx-swap=\"outerHTML transition:true\" hx-trigger=\"click\"><p class=\"text-orange-500 hover:font-semibold cursor-pointer transition-all\">Homebrew Computer</p></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -147,7 +147,7 @@ func ComputerProjectOpen() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><p class=\"text-orange-500 hover:underline\" hx-get=\"/project/closed/computer\" hx-target=\"closest div\" hx-swap=\"outerHTML transition:true\" hx-trigger=\"click\">Homebrew Computer</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><p class=\"text-orange-500 hover:font-semibold cursor-pointer transition-all\" hx-get=\"/project/closed/computer\" hx-target=\"closest div\" hx-swap=\"outerHTML transition:true\" hx-trigger=\"click\">Homebrew Computer</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -184,7 +184,7 @@ func ComputerProjectSections() templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<menu class=\"text-slate-100\"><p>chapter 1 </p><p>chapter 2 </p><p>chapter 3 </p><p>chapter 4 </p></menu>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<menu><a href=\"\" class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\">8-bit Adder</a></menu>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

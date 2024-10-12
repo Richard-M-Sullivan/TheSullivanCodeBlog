@@ -16,7 +16,7 @@ templ Project() {
 
 templ ComputerProjectClosed() {
 	<div hx-get="/project/open/computer" hx-swap="outerHTML transition:true" hx-trigger="click">
-		<p class="text-orange-500 hover:underline">
+		<p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
 			Homebrew
 			Computer
 		</p>
@@ -26,7 +26,7 @@ templ ComputerProjectClosed() {
 templ ComputerProjectOpen() {
 	<div>
 		<p
-			class="text-orange-500 hover:underline"
+			class="text-orange-500 hover:font-semibold cursor-pointer transition-all"
 			hx-get="/project/closed/computer"
 			hx-target="closest div"
 			hx-swap="outerHTML transition:true"
@@ -39,10 +39,7 @@ templ ComputerProjectOpen() {
 }
 
 templ ComputerProjectSections() {
-	<menu class="text-slate-100">
-		<p>chapter 1 </p>
-		<p>chapter 2 </p>
-		<p>chapter 3 </p>
-		<p>chapter 4 </p>
+	<menu>
+		<a href="" class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">8-bit Adder</a>
 	</menu>
 }
