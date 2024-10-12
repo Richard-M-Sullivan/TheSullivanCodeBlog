@@ -31,37 +31,37 @@ templ Navigation() {
 			<div class="p-2 bg-slate-900 flex flex-row justify-around">
 				<a
 					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/blog"
+					href="/blog/"
 				>
 					Blog
 				</a>
 				<a
 					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/project"
+					href="/project/"
 				>
 					Projects
 				</a>
 				<a
 					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/tutorial"
+					href="/tutorial/"
 				>
 					Tutorials
 				</a>
 				<a
 					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/note"
+					href="/note/"
 				>
 					Notes
 				</a>
 				<a
 					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700"
-					href="/resume"
+					href="/resume/"
 				>
 					Resume
 				</a>
 				<a
 					class="rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700 "
-					href="/support"
+					href="/support/"
 				>
 					Support
 				</a>
@@ -73,9 +73,20 @@ templ Navigation() {
 
 templ ContentSection() {
 	<div
-		class="ring ring-orange-500 shadow-2xl shadow-black mx-1 my-5 p-2 sm:self-center bg-slate-950 self-stretch rounded-lg sm:m-10 sm:w-[640px]"
+		class="transition-all ring ring-orange-500 shadow-2xl shadow-black mx-1 my-5 p-2 sm:self-center bg-slate-950 self-stretch rounded-lg sm:m-10 sm:w-[640px]"
 	>
 		{ children... }
+	</div>
+}
+
+templ ButtonTextReveal(linkName string, page string) {
+	<div class="group">
+		@ContentSection() {
+			<a href="page" class="text-orange-500">{ linkName } </a>
+		}
+		<div class="ring ring-orange-500 -z-10 absolute overflow-clip group-hover:static h-0 group-hover:h-fit">
+			{ children... }
+		</div>
 	</div>
 }
 

@@ -1,12 +1,47 @@
 package templates
 
 templ Project() {
-@BaseHeader("TSCB Projects") {
-
-<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
-  @Navigation()
-  <main class="flex-grow justify-start"></main>
-  @Footer()
-</body>
+	@BaseHeader("TSCB Projects") {
+		<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center">
+			@Navigation()
+			<main class="flex-grow justify-start">
+				@ContentSection() {
+					@ComputerProjectTitle()
+				}
+				@ContentSection() {
+					<p>hello </p>
+				}
+			</main>
+			@Footer()
+		</body>
+	}
 }
+
+templ ComputerProjectTitle() {
+	<div hx-get="/project/chapters/computer" hx-swap="outerHTML transition:true" hx-trigger="click">
+		<p class="text-orange-500 hover:underline">
+			Homebrew
+			Computer
+		</p>
+	</div>
+}
+
+templ ComputerProjectChapters() {
+	<div>
+		<p
+			class="text-orange-500 hover:underline"
+			hx-get="/project/title/computer"
+			hx-target="closest div"
+			hx-swap="outerHTML transition:true"
+			hx-trigger="click"
+		>
+			Homebrew Computer
+		</p>
+		<menu class="text-slate-100">
+			<p>chapter 1 </p>
+			<p>chapter 2 </p>
+			<p>chapter 3 </p>
+			<p>chapter 4 </p>
+		</menu>
+	</div>
 }

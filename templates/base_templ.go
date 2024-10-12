@@ -79,7 +79,7 @@ func Navigation() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav class=\"w-full grid sm:grid-cols-3\"><div class=\"py-5 bg-slate-900 sm:rounded-br-3xl\"><a href=\"/\" class=\"ring-yellow-600\"><h1 class=\"text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl\">The Sullivan</h1><h1 class=\"text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl\">Code Blog</h1></a></div><div class=\"bg-slate-900 flex flex-col sm:col-span-2\"><div class=\"p-2 bg-slate-900 flex flex-row justify-around\"><a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/blog\">Blog</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/project\">Projects</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/tutorial\">Tutorials</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/note\">Notes</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/resume\">Resume</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700 \" href=\"/support\">Support</a></div><div class=\"bg-slate-800 rounded-tl-3xl flex-grow \"></div></div></nav>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<nav class=\"w-full grid sm:grid-cols-3\"><div class=\"py-5 bg-slate-900 sm:rounded-br-3xl\"><a href=\"/\" class=\"ring-yellow-600\"><h1 class=\"text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl\">The Sullivan</h1><h1 class=\"text-center text-orange-500 text-3xl md:text-4xl lg:text-5xl\">Code Blog</h1></a></div><div class=\"bg-slate-900 flex flex-col sm:col-span-2\"><div class=\"p-2 bg-slate-900 flex flex-row justify-around\"><a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/blog/\">Blog</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/project/\">Projects</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/tutorial/\">Tutorials</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/note/\">Notes</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700\" href=\"/resume/\">Resume</a> <a class=\"rounded-md text-orange-500 text-center flex-grow transition-colors duration-200 bg-slate-900 hover:bg-slate-700 \" href=\"/support/\">Support</a></div><div class=\"bg-slate-800 rounded-tl-3xl flex-grow \"></div></div></nav>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -108,7 +108,7 @@ func ContentSection() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"ring ring-orange-500 shadow-2xl shadow-black mx-1 my-5 p-2 sm:self-center bg-slate-950 self-stretch rounded-lg sm:m-10 sm:w-[640px]\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"transition-all ring ring-orange-500 shadow-2xl shadow-black mx-1 my-5 p-2 sm:self-center bg-slate-950 self-stretch rounded-lg sm:m-10 sm:w-[640px]\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -117,6 +117,82 @@ func ContentSection() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+func ButtonTextReveal(linkName string, page string) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var5 == nil {
+			templ_7745c5c3_Var5 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"group\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Var6 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"page\" class=\"text-orange-500\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var7 string
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(linkName)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/base.templ`, Line: 85, Col: 52}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</a>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return templ_7745c5c3_Err
+		})
+		templ_7745c5c3_Err = ContentSection().Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"ring ring-orange-500 -z-10 absolute overflow-clip group-hover:static h-0 group-hover:h-fit\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templ_7745c5c3_Var5.Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -140,9 +216,9 @@ func Footer() templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var5 == nil {
-			templ_7745c5c3_Var5 = templ.NopComponent
+		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var8 == nil {
+			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<footer class=\"p-2 mt-auto self-end text-orange-500 bg-slate-900 flex justify-around w-svw\"><a class=\"rounded-md transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"https://github.com/Richard-M-Sullivan\">Github</a> <a class=\"rounded-md transition-colors duration-200 bg-slate-900 hover:bg-slate-700 w-full h-fit text-center\" href=\"https://www.linkedin.com/in/richard-sullivan-967182233/\">Linkedin</a></footer>")

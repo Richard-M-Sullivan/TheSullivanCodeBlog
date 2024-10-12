@@ -14,12 +14,12 @@ func main() {
 
 	// setting the route handlers
 	mux.Handle("/", http.HandlerFunc(handlers.IndexHandler))
-	mux.Handle("/blog", http.HandlerFunc(handlers.BlogHandler))
-	mux.Handle("/project", http.HandlerFunc(handlers.ProjectHandler))
-	mux.Handle("/tutorial", http.HandlerFunc(handlers.TutorialHandler))
-	mux.Handle("/note", http.HandlerFunc(handlers.NotesHandler))
-	mux.Handle("/resume", http.HandlerFunc(handlers.ResumeHandler))
-	mux.Handle("/support", http.HandlerFunc(handlers.SupportHandler))
+	mux.Handle("/blog/", http.HandlerFunc(handlers.BlogHandler))
+	mux.Handle("/project/", http.StripPrefix("/project", handlers.ProjectHandlers()))
+	mux.Handle("/tutorial/", http.HandlerFunc(handlers.TutorialHandler))
+	mux.Handle("/note/", http.HandlerFunc(handlers.NotesHandler))
+	mux.Handle("/resume/", http.HandlerFunc(handlers.ResumeHandler))
+	mux.Handle("/support/", http.HandlerFunc(handlers.SupportHandler))
 
 	// file server for static content
 	cssDir := http.Dir("./styles/")
