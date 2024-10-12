@@ -13,22 +13,22 @@ func ProjectHandler(w http.ResponseWriter, r *http.Request) {
 	component.Render(r.Context(), w)
 }
 
-func TitleHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("chaptersHandler", r.URL.Path)
-	component := templates.ComputerProjectTitle()
+func ClosedHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("closed handler", r.URL.Path)
+	component := templates.ComputerProjectClosed()
 	component.Render(r.Context(), w)
 }
 
-func ChaptersHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("chaptersHandler", r.URL.Path)
-	component := templates.ComputerProjectChapters()
+func OpenHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("open handler", r.URL.Path)
+	component := templates.ComputerProjectOpen()
 	component.Render(r.Context(), w)
 }
 
 func ProjectHandlers() *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.Handle("/", http.HandlerFunc(ProjectHandler))
-	mux.Handle("/title/{project}", http.HandlerFunc(TitleHandler))
-	mux.Handle("/chapters/{project}", http.HandlerFunc(ChaptersHandler))
+	mux.Handle("/closed/{project}", http.HandlerFunc(ClosedHandler))
+	mux.Handle("/open/{project}", http.HandlerFunc(OpenHandler))
 	return mux
 }

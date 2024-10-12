@@ -6,10 +6,7 @@ templ Project() {
 			@Navigation()
 			<main class="flex-grow justify-start">
 				@ContentSection() {
-					@ComputerProjectTitle()
-				}
-				@ContentSection() {
-					<p>hello </p>
+					@ComputerProjectClosed()
 				}
 			</main>
 			@Footer()
@@ -17,8 +14,8 @@ templ Project() {
 	}
 }
 
-templ ComputerProjectTitle() {
-	<div hx-get="/project/chapters/computer" hx-swap="outerHTML transition:true" hx-trigger="click">
+templ ComputerProjectClosed() {
+	<div hx-get="/project/open/computer" hx-swap="outerHTML transition:true" hx-trigger="click">
 		<p class="text-orange-500 hover:underline">
 			Homebrew
 			Computer
@@ -26,22 +23,26 @@ templ ComputerProjectTitle() {
 	</div>
 }
 
-templ ComputerProjectChapters() {
+templ ComputerProjectOpen() {
 	<div>
 		<p
 			class="text-orange-500 hover:underline"
-			hx-get="/project/title/computer"
+			hx-get="/project/closed/computer"
 			hx-target="closest div"
 			hx-swap="outerHTML transition:true"
 			hx-trigger="click"
 		>
 			Homebrew Computer
 		</p>
-		<menu class="text-slate-100">
-			<p>chapter 1 </p>
-			<p>chapter 2 </p>
-			<p>chapter 3 </p>
-			<p>chapter 4 </p>
-		</menu>
+		@ComputerProjectSections()
 	</div>
+}
+
+templ ComputerProjectSections() {
+	<menu class="text-slate-100">
+		<p>chapter 1 </p>
+		<p>chapter 2 </p>
+		<p>chapter 3 </p>
+		<p>chapter 4 </p>
+	</menu>
 }
