@@ -589,6 +589,10 @@ video {
   margin-top: auto;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -634,8 +638,16 @@ video {
   flex-grow: 1;
 }
 
+.basis-full {
+  flex-basis: 100%;
+}
+
 .cursor-pointer {
   cursor: pointer;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .grid-cols-2 {
@@ -660,6 +672,12 @@ video {
 
 .justify-around {
   justify-content: space-around;
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
 .self-end {
@@ -713,9 +731,21 @@ video {
   padding: 0.5rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
+.pt-3 {
+  padding-top: 0.75rem;
 }
 
 .text-left {
@@ -724,6 +754,11 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-3xl {
