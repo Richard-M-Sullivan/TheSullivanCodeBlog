@@ -26,7 +26,7 @@ templ ComputerProjectClosed() {
 templ ComputerProjectOpen() {
 	<div>
 		<p
-			class="text-orange-500 hover:font-semibold cursor-pointer transition-all"
+			class="text-orange-500 font-semibold hover:font-normal cursor-pointer transition-all"
 			hx-get="/project/closed/computer"
 			hx-target="closest div"
 			hx-swap="outerHTML transition:true"
@@ -40,6 +40,9 @@ templ ComputerProjectOpen() {
 
 templ ComputerProjectSections() {
 	<menu>
-		<a href="" class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">8-bit Adder</a>
+		<a
+			href="/project/homebrew-computer/introduction"
+			class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500"
+		>8-bit Adder</a>
 	</menu>
 }

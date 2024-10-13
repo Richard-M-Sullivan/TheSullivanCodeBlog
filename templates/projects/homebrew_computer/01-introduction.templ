@@ -1,24 +1,60 @@
 package homebrew_computer
 
+import "github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates"
+
 templ Introduction() {
-	<div class="grid grid-cols-2 sm:grid-cols-3">
-		<section class="col-span-2 w-full">
-			<h2 class="text-slate-300 italic font-bold text-left mx-10 my-5">Welcome to to The Sullivan Code Blog!</h2>
-			<p class="text-slate-400 text-left mx-10 my-5">
-				I started this website to be a personal notepad, online resume, and guide to
-				help others. I am passionate about learning and have made it my mission to
-				share that knowledge. I hope that my works serve you as a useful and fun
-				resource on your learning journey.
-			</p>
-			<p class="hidden text-slate-400 text-left mx-10 my-5 sm:block">
-				-- Richard Sullivan
-			</p>
-		</section>
-		<section class="mb-5 col-span-2 sm:col-span-1 flex flex-row justify-center w-full self-center sm:order-first">
-			<p class="text-slate-400 text-left mx-10 my-5 sm:hidden justify-self-center">
-				-- Richard Sullivan
-			</p>
-			<img src="/media/portrait.png" alt="self portrait of website author" class="max-w-40"/>
-		</section>
-	</div>
+@templates.BaseHeader("The Sullivan Code Blog") {
+
+<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
+  @templates.Navigation()
+  <main class="flex-grow justify-start">
+    @templates.ContentSection() {
+    @homebrew_computer_intro()
+    <br />
+    @table()
+    }
+  </main>
+  @templates.Footer()
+</body>
+}
+}
+
+templ homebrew_computer_intro() {
+<h1 class="text-orange-500 text-3xl">8 Bit Adder</h1>
+<br />
+<p class="text-slate-100 text-4xl">
+  Friend asked how computer works - started this project to teach friend.
+  Adder project goals - learn about basic logic gates, learn how to design
+  circuits, learn how to build circuits physically, and learn how to prototype
+  and plan projects.
+</p>
+}
+
+templ table() {
+<h1 class="text-orange-500 font-bold">Chapters:</h1>
+<div>
+  <ul class="pl-10 list-disc list-inside">
+    <li>
+      <p class="text-slate-100 hover:font-semibold hover:text-blue-500">Learning to Use Logisim</p>
+    </li>
+    <li>
+      <p class="text-slate-100 hover:font-semibold hover:text-blue-500">Researching Computer Chips</p>
+    </li>
+    <li>
+      <p class="text-slate-100 hover:font-semibold hover:text-blue-500">Building a Physical Prototype</p>
+    </li>
+    <li>
+      <p class="text-slate-100 hover:font-semibold hover:text-blue-500">Finalizing the Design</p>
+    </li>
+    <li>
+      <p class="text-slate-100 hover:font-semibold hover:text-blue-500">Ordering the Parts</p>
+    </li>
+    <li>
+      <p class="text-slate-100 hover:font-semibold hover:text-blue-500">Putting it all Together</p>
+    </li>
+    <li>
+      <p class="text-slate-100 hover:font-semibold hover:text-blue-500">Takeaways and Next Steps</p>
+    </li>
+  </ul>
+</div>
 }

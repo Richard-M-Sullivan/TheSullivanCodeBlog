@@ -1,39 +1,38 @@
 package templates
 
 templ Index() {
-@BaseHeader("The Sullivan Code Blog") {
-
-<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
-  @Navigation()
-  <main class="flex-grow justify-start">
-    @ContentSection() {
-    @WelcomeMessage()
-    }
-  </main>
-  @Footer()
-</body>
+	@BaseHeader("The Sullivan Code Blog") {
+		<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
+			@Navigation()
+			<main class="flex-grow justify-start">
+				@ContentSection() {
+					@welcomeMessage()
+				}
+			</main>
+			@Footer()
+		</body>
+	}
 }
-}
 
-templ WelcomeMessage() {
-<div class="grid grid-cols-2 sm:grid-cols-3">
-  <section class="col-span-2 w-full">
-    <h2 class="text-slate-300 italic font-bold text-left mx-10 my-5">Welcome to to The Sullivan Code Blog!</h2>
-    <p class="text-slate-400 text-left mx-10 my-5">
-      I started this website to be a personal notepad, online resume, and guide to
-      help others. I am passionate about learning and have made it my mission to
-      share that knowledge. I hope that my works serve you as a useful and fun
-      resource on your learning journey.
-    </p>
-    <p class="hidden text-slate-400 text-left mx-10 my-5 sm:block">
-      -- Richard Sullivan
-    </p>
-  </section>
-  <section class="mb-5 col-span-2 sm:col-span-1 flex flex-row justify-center w-full self-center sm:order-first">
-    <p class="text-slate-400 text-left mx-10 my-5 sm:hidden justify-self-center">
-      -- Richard Sullivan
-    </p>
-    <img src="/media/portrait.png" alt="self portrait of website author" class="max-w-40" />
-  </section>
-</div>
+templ welcomeMessage() {
+	<div class="grid grid-cols-2 sm:grid-cols-3">
+		<section class="col-span-2 w-full">
+			<h2 class="text-slate-300 italic font-bold text-left mx-10 my-5">Welcome to to The Sullivan Code Blog!</h2>
+			<p class="text-slate-400 text-left mx-10 my-5">
+				I started this website to be a personal notepad, online resume, and guide to
+				help others. I am passionate about learning and have made it my mission to
+				share that knowledge. I hope that my works serve you as a useful and fun
+				resource on your learning journey.
+			</p>
+			<p class="hidden text-slate-400 text-left mx-10 my-5 sm:block">
+				-- Richard Sullivan
+			</p>
+		</section>
+		<section class="mb-5 col-span-2 sm:col-span-1 flex flex-row justify-center w-full self-center sm:order-first">
+			<p class="text-slate-400 text-left mx-10 my-5 sm:hidden justify-self-center">
+				-- Richard Sullivan
+			</p>
+			<img src="/media/portrait.png" alt="self portrait of website author" class="max-w-40"/>
+		</section>
+	</div>
 }
