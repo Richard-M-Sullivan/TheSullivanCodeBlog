@@ -128,7 +128,7 @@ func homebrew_computer_intro() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 text-3xl\">8 Bit Adder</h1><br><p class=\"text-slate-100 text-4xl\">Friend asked how computer works - started this project to teach friend. Adder project goals - learn about basic logic gates, learn how to design circuits, learn how to build circuits physically, and learn how to prototype and plan projects.</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 text-3xl\">8 Bit Adder</h1><br><p class=\"text-slate-100 text-4xl\">loreum ipsum</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -157,7 +157,7 @@ func table() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 font-bold\">Chapters:</h1><div><ul class=\"pl-10 list-disc list-inside\"><li><p class=\"text-slate-100 hover:font-semibold hover:text-blue-500\">Learning to Use Logisim</p></li><li><p class=\"text-slate-100 hover:font-semibold hover:text-blue-500\">Researching Computer Chips</p></li><li><p class=\"text-slate-100 hover:font-semibold hover:text-blue-500\">Building a Physical Prototype</p></li><li><p class=\"text-slate-100 hover:font-semibold hover:text-blue-500\">Finalizing the Design</p></li><li><p class=\"text-slate-100 hover:font-semibold hover:text-blue-500\">Ordering the Parts</p></li><li><p class=\"text-slate-100 hover:font-semibold hover:text-blue-500\">Putting it all Together</p></li><li><p class=\"text-slate-100 hover:font-semibold hover:text-blue-500\">Takeaways and Next Steps</p></li></ul></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 font-bold\">Chapters:</h1><div><ul class=\"list-disc space-y-3 pl-4\"><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Basic Logic Gates</a></li><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Learning to Use Logisim</a></li><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Researching Computer Chips</a></li><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Building a Physical Prototype</a></li><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Finalizing the Design</a></li><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Ordering the Parts</a></li><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Putting it all Together</a></li><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"\" class=\"\">Takeaways and Next Steps</a></li></ul></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

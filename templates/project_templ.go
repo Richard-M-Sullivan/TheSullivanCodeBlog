@@ -147,7 +147,7 @@ func ComputerProjectOpen() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><p class=\"text-orange-500 font-semibold hover:font-normal cursor-pointer transition-all\" hx-get=\"/project/closed/computer\" hx-target=\"closest div\" hx-swap=\"outerHTML transition:true\" hx-trigger=\"click\">Homebrew Computer</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><p class=\"text-orange-500 hover:font-semibold cursor-pointer transition-all\" hx-get=\"/project/closed/computer\" hx-target=\"closest div\" hx-swap=\"outerHTML transition:true\" hx-trigger=\"click\">Homebrew Computer</p><p class=\"text-slate-100\">One day, a close friend of mine asked, \"Richard, how does a computer work?\" - Keep in mind that my friend isn't very computer savvy. I gave him a high level overview, but he insisted that he wanted to know at the 'Lowest Level'. I don't think he anticipated that we would build one from scratch together!</p><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -184,7 +184,7 @@ func ComputerProjectSections() templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<menu><a href=\"/project/homebrew-computer/introduction\" class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\">8-bit Adder</a></menu>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<p class=\"text-orange-500\">Chapters:</p><ul class=\"list-disc space-y-3 pl-4\"><li class=\"transition-all text-slate-100 hover:font-semibold hover:text-blue-500\"><a href=\"/project/homebrew-computer/introduction\" class=\"\">8-bit Adder</a></li></ul>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
