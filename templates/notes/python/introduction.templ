@@ -1,0 +1,44 @@
+package python
+
+import "github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates"
+
+templ Introduction() {
+@templates.BaseHeader("The Sullivan Code Blog") {
+
+<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
+  @templates.Navigation()
+  <main class="flex-grow justify-start">
+    @templates.ContentSection() {
+    @c_intro()
+    <br />
+    @table()
+    }
+  </main>
+  @templates.Footer()
+</body>
+}
+}
+
+templ c_intro() {
+<h1 class="text-orange-500 text-3xl">8 Bit Adder</h1>
+<p class="text-slate-100 text-4xl">
+  In this guide should contain all that you need to know in order to start writing your own projects in Python.
+</p>
+}
+
+templ table() {
+<h1 class="text-orange-500 font-bold">Chapters:</h1>
+<div>
+  <ul class="list-disc space-y-3 pl-4">
+    <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+      <a href="/project/c/c-intro" class="">How does Python work?</a>
+    </li>
+    <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+      <a href="/project/c/hello-world" class="">The 'Hello World' program</a>
+    </li>
+    <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+      <a href="/project/c/compiling-linking-running" class="">Running a Python program</a>
+    </li>
+  </ul>
+</div>
+}
