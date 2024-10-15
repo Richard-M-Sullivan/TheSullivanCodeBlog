@@ -1,24 +1,140 @@
 package templates
 
 templ Note() {
-	@BaseHeader("TSCB Notes") {
-		<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center">
-			@Navigation()
-			<main class="flex-grow justify-start">
-				@ContentSection() {
-					<button class="text-orange-500 underline">+ Useful Links</button>
-				}
-				@ContentSection() {
-					<button class="text-orange-500 underline">+ Python</button>
-				}
-				@ContentSection() {
-					<button class="text-orange-500 underline">+ C</button>
-				}
-				@ContentSection() {
-					<button class="text-orange-500 underline">+ GoLang</button>
-				}
-			</main>
-			@Footer()
-		</body>
-	}
+@BaseHeader("TSCB Projects") {
+
+<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center">
+  @Navigation()
+  <main class="flex-grow justify-start">
+    @ContentSection() {
+    @NotesClosed()
+    }
+  </main>
+  @Footer()
+</body>
+}
+}
+
+templ NotesClosed() {
+<div hx-get="/note/open/useful-links" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    Useful Links
+  </p>
+</div>
+<div hx-get="/note/open/python" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    Python
+  </p>
+</div>
+<div hx-get="/note/open/golang" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    GoLang
+  </p>
+</div>
+<div hx-get="/note/open/c" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    C
+  </p>
+</div>
+}
+
+//----------------------------------------------------------------------------//
+templ NotesOpenUsefulLinks() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/useful-links"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    Useful Links
+  </p>
+  <p class="text-slate-100">
+    Enjoy this collection of links that are both useful and interesting.
+  </p>
+  <br />
+  @NotesSectionUsefulLinks()
+</div>
+}
+
+templ NotesSectionUsefulLinks() {
+<p class="text-orange-500">Chapters:</p>
+<ul class="list-disc space-y-3 pl-4">
+  <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+    <a href="" class="">useful link</a>
+  </li>
+</ul>
+}
+
+//----------------------------------------------------------------------------//
+templ NotesOpenPython() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/computer"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    Python
+  </p>
+  <p class="text-slate-100">
+    Python was one of the first languages that clicked for me. The simple
+    yet powerful syntax makes Python my favorite scripting language.
+  </p>
+  <br />
+  @NotesSectionPython()
+</div>
+}
+
+templ NotesSectionPython() {
+<p class="text-orange-500">Chapters:</p>
+<ul class="list-disc space-y-3 pl-4">
+  <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+    <a href="/note/python/introduction" class="">Getting Started</a>
+  </li>
+</ul>
+}
+
+//----------------------------------------------------------------------------//
+templ NotesOpenGoLang() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/computer"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    GoLang
+  </p>
+  <p class="text-slate-100">
+    GoLang is a small C-like programming language that comes with tons of
+    features out of the box. It comes with useful primitives for networking,
+    concurrency, and interfaces. Furthermore, GoLang is packaged with its own
+    standardized tools. What's not to like?
+  </p>
+  <br />
+  @NotesSectionGoLang()
+</div>
+}
+
+templ NotesSectionGoLang() {
+<p class="text-orange-500">Chapters:</p>
+<ul class="list-disc space-y-3 pl-4">
+  <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+    <a href="/note/GoLang/introduction" class="">Getting Started</a>
+  </li>
+</ul>
+}
+
+//----------------------------------------------------------------------------//
+templ NotesOpenC() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/computer"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    C
+  </p>
+  <p class="text-slate-100">
+    C is such an iconic language with a rich history. If you like building things
+    from scratch and being close to the hardware, C is the language for you!
+  </p>
+  <br />
+  @NotesSectionC()
+</div>
+}
+
+templ NotesSectionC() {
+<p class="text-orange-500">Chapters:</p>
+<ul class="list-disc space-y-3 pl-4">
+  <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+    <a href="/note/c/introduction" class="">Getting Started</a>
+  </li>
+</ul>
 }
