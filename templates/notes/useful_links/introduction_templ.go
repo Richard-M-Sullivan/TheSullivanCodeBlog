@@ -67,7 +67,7 @@ func Introduction() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = c_intro().Render(ctx, templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = usefulLinks().Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -107,7 +107,7 @@ func Introduction() templ.Component {
 	})
 }
 
-func c_intro() templ.Component {
+func usefulLinks() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -128,7 +128,7 @@ func c_intro() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 text-3xl\">8 Bit Adder</h1><p class=\"text-slate-100 text-4xl\">Here is a list of useful links.</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 text-3xl\">Useful Links</h1><p class=\"text-slate-100 text-4xl\">Here is a list of useful links.</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

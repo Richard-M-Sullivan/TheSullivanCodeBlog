@@ -9,7 +9,7 @@ templ Introduction() {
   @templates.Navigation()
   <main class="flex-grow justify-start">
     @templates.ContentSection() {
-    @c_intro()
+    @usefulLinks()
     <br />
     @table()
     }
@@ -19,8 +19,8 @@ templ Introduction() {
 }
 }
 
-templ c_intro() {
-<h1 class="text-orange-500 text-3xl">8 Bit Adder</h1>
+templ usefulLinks() {
+<h1 class="text-orange-500 text-3xl">Useful Links</h1>
 <p class="text-slate-100 text-4xl">
   Here is a list of useful links.
 </p>

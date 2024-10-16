@@ -6,9 +6,7 @@ templ Note() {
 <body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center">
   @Navigation()
   <main class="flex-grow justify-start">
-    @ContentSection() {
     @NotesClosed()
-    }
   </main>
   @Footer()
 </body>
@@ -16,29 +14,29 @@ templ Note() {
 }
 
 templ NotesClosed() {
+@ContentSection() {
+@NotesClosedUsefulLinks()
+}
+@ContentSection() {
+@NotesClosedPython()
+}
+@ContentSection() {
+@NotesClosedGoLang()
+}
+@ContentSection() {
+@NotesClosedC()
+}
+}
+
+//----------------------------------------------------------------------------//
+templ NotesClosedUsefulLinks() {
 <div hx-get="/note/open/useful-links" hx-swap="outerHTML transition:true" hx-trigger="click">
   <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
     Useful Links
   </p>
 </div>
-<div hx-get="/note/open/python" hx-swap="outerHTML transition:true" hx-trigger="click">
-  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
-    Python
-  </p>
-</div>
-<div hx-get="/note/open/golang" hx-swap="outerHTML transition:true" hx-trigger="click">
-  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
-    GoLang
-  </p>
-</div>
-<div hx-get="/note/open/c" hx-swap="outerHTML transition:true" hx-trigger="click">
-  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
-    C
-  </p>
-</div>
 }
 
-//----------------------------------------------------------------------------//
 templ NotesOpenUsefulLinks() {
 <div>
   <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/useful-links"
@@ -54,18 +52,25 @@ templ NotesOpenUsefulLinks() {
 }
 
 templ NotesSectionUsefulLinks() {
-<p class="text-orange-500">Chapters:</p>
 <ul class="list-disc space-y-3 pl-4">
   <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
-    <a href="" class="">useful link</a>
+    <a href="https://www.youtube.com" class="">youtube</a>
   </li>
 </ul>
 }
 
 //----------------------------------------------------------------------------//
+templ NotesClosedPython() {
+<div hx-get="/note/open/python" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    Python
+  </p>
+</div>
+}
+
 templ NotesOpenPython() {
 <div>
-  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/computer"
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/python"
     hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
     Python
   </p>
@@ -88,9 +93,17 @@ templ NotesSectionPython() {
 }
 
 //----------------------------------------------------------------------------//
+templ NotesClosedGoLang() {
+<div hx-get="/note/open/golang" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    GoLang
+  </p>
+</div>
+}
+
 templ NotesOpenGoLang() {
 <div>
-  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/computer"
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/golang"
     hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
     GoLang
   </p>
@@ -109,15 +122,23 @@ templ NotesSectionGoLang() {
 <p class="text-orange-500">Chapters:</p>
 <ul class="list-disc space-y-3 pl-4">
   <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
-    <a href="/note/GoLang/introduction" class="">Getting Started</a>
+    <a href="/note/golang/introduction" class="">Getting Started</a>
   </li>
 </ul>
 }
 
 //----------------------------------------------------------------------------//
+templ NotesClosedC() {
+<div hx-get="/note/open/c" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    C
+  </p>
+</div>
+}
+
 templ NotesOpenC() {
 <div>
-  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/computer"
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/c"
     hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
     C
   </p>

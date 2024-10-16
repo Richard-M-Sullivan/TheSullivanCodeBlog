@@ -17,7 +17,7 @@ func main() {
 	mux.Handle("/blog/", http.HandlerFunc(handlers.BlogHandler))
 	mux.Handle("/project/", http.StripPrefix("/project", handlers.ProjectHandlers()))
 	mux.Handle("/tutorial/", http.HandlerFunc(handlers.TutorialHandler))
-	mux.Handle("/note/", http.HandlerFunc(handlers.NotesHandler))
+	mux.Handle("/note/", http.StripPrefix("/note", handlers.NotesHandlers()))
 	mux.Handle("/resume/", http.HandlerFunc(handlers.ResumeHandler))
 	mux.Handle("/support/", http.HandlerFunc(handlers.SupportHandler))
 
