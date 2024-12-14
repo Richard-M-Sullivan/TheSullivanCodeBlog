@@ -5,6 +5,7 @@ import (
 
 	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates"
 	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates/projects/homebrew_computer"
+	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates/projects/js_practice"
 	"github.com/a-h/templ"
 )
 
@@ -14,12 +15,37 @@ func ProjectHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ClosedHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.ComputerProjectClosed()
+
+	var component templ.Component
+
+	project := r.PathValue("project")
+
+	switch project {
+	case "computer":
+        component = templates.ComputerProjectClosed()
+
+	case "js-practice":
+		component = templates.JSPracticeClosed()
+
+	}
+
 	component.Render(r.Context(), w)
 }
 
 func OpenHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.ComputerProjectOpen()
+	var component templ.Component
+
+	project := r.PathValue("project")
+
+	switch project {
+	case "computer":
+        component = templates.ComputerProjectOpen()
+
+	case "js-practice":
+		component = templates.JSPracticeOpen()
+
+	}
+
 	component.Render(r.Context(), w)
 }
 
@@ -61,11 +87,26 @@ func HomebrewComputer(w http.ResponseWriter, r *http.Request) {
 	component.Render(r.Context(), w)
 }
 
+func JSPractice(w http.ResponseWriter, r *http.Request) {
+	var component templ.Component
+
+	chapter := r.PathValue("chapter")
+
+	switch chapter {
+	case "fetch-box":
+		component = js_practice.FetchBox()
+
+	}
+
+	component.Render(r.Context(), w)
+}
+
 func ProjectHandlers() *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.Handle("/", http.HandlerFunc(ProjectHandler))
 	mux.Handle("/closed/{project}", http.HandlerFunc(ClosedHandler))
 	mux.Handle("/open/{project}", http.HandlerFunc(OpenHandler))
 	mux.Handle("/homebrew-computer/{chapter}", http.HandlerFunc(HomebrewComputer))
+	mux.Handle("/js-practice/{chapter}", http.HandlerFunc(JSPractice))
 	return mux
 }
