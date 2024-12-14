@@ -9,6 +9,9 @@ templ Project() {
     @ContentSection() {
     @ComputerProjectClosed()
     }
+    @ContentSection(){
+    @JSPracticeClosed()
+    }
   </main>
   @Footer()
 </body>
@@ -45,6 +48,40 @@ templ ComputerProjectSections() {
 <ul class="list-disc space-y-3 pl-4">
   <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
     <a href="/project/homebrew-computer/introduction" class="">8-bit Adder</a>
+  </li>
+</ul>
+}
+
+templ JSPracticeClosed() {
+<div hx-get="/project/open/js-practice" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    JavaScript Mini-Program Gallery
+  </p>
+</div>
+}
+
+templ JSPracticeOpen() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/project/closed/js-practice"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    JavaScript Mini-Program Gallery
+  </p>
+  <p class="text-slate-100">
+    At the time of writing, the job market for software development has become very
+    competitive. For that reason, I decided to start making ''mini'' programs to
+    help brush up on my JavaScript and to, most importantly, have fun while
+    doing it. I hope you get as much enjoyment out of these projects as I have!
+  </p>
+  <br />
+  @JSProjectSections()
+</div>
+}
+
+templ JSProjectSections() {
+<p class="text-orange-500">Programs:</p>
+<ul class="list-disc space-y-3 pl-4">
+  <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+    <a href="/project/js-practice/fetch-box" class="">Fetch Box</a>
   </li>
 </ul>
 }
