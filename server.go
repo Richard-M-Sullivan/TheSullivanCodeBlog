@@ -34,6 +34,10 @@ func main() {
 	htmxFS := http.FileServer(htmxDir)
 	mux.Handle("/htmx/", http.StripPrefix("/htmx/", htmxFS))
 
+	javascriptDir := http.Dir("./javascript")
+	javascriptFS := http.FileServer(javascriptDir)
+	mux.Handle("/javascript/", http.StripPrefix("/javascript/", javascriptFS))
+
 	fmt.Println("starting server...")
 	log.Fatal(
 		http.ListenAndServe(":8080", mux))
