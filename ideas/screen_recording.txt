@@ -1,0 +1,54 @@
+PROJECT POST
+
+What is the problem - I want to be able to record the screen.
+
+[ ] I want to use a hotkey to start and stop recording the screen
+[ ] I want to optionally specify a region of the screen to record with the
+    mouse
+[ ] I want to optionally specify if I want to record sound or not
+[ ] I want to optionally specify if I want to record video or not
+[ ] I want to optionally specify the file that I want to save to
+
+
+how does the command work?
+
+I think that it should be a terminal command - I use flags to determine what
+setting that I want - audio, video, area to capture. After specifying flags I
+should be able to then use a combination of the mouse and hot keys to select an
+area to record and to start and stop recording.
+
+What does the commnad look like
+
+         record computer sound
+                    |   record microphone audio
+                    |              |    specify recording area
+                    |              |               |      record a gif
+                    |              |               |            |   file name
+                    |              |               |            |       |
+record-screen [-s|--sound] [-m|--microphone] [-r|--region] [-g|--gif] [file]
+
+By default the command will record the screen and wait for you to press the
+hotkey to start recording, and press the hotkey to stop recording
+
+SOUND and MICROPHONE and GIF and FILE do not change the operation
+of the commnad
+
+REGION changes the operation to waiting for the hotkey and then two mouse
+clicks to get position. then it will wait for the hotkey to start and hotkey to
+finish.
+
+--------------------------------------------------------------------------------
+
+The first step is to parse the command line arguments
+
+there are not any arguments that need a list of options, so this should be
+easy - just look for flags, and then look for a single non-flag argument
+
+
+get a list of arguments and the number of arguments, then iterate through and
+set flags in the program.
+
+based on the flags we compose a ffmpeg command
+
+
+
