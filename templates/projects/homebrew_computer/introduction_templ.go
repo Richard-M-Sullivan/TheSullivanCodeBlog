@@ -128,7 +128,7 @@ func homebrew_computer_intro() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 text-3xl\">8 Bit Adder</h1><p class=\"text-slate-100 text-4xl\">The goal of this project is to design and build a circuit capable of adding and subtracting two 8-bit numbers. This is a great first project for anyone interested in circuit design, and is fundamental to understanding the CPU.</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h1 class=\"text-orange-500 text-3xl\">8 Bit Adder</h1><p class=\"text-slate-100\">The goal of this project is to design and build a circuit capable of adding and subtracting two 8-bit numbers. This is a great first project for anyone interested in circuit design, and is fundamental to understanding the CPU.</p>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
