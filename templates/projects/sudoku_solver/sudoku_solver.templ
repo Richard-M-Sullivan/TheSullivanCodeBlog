@@ -19,7 +19,7 @@ templ SudokuSolver() {
     }
   </main>
   @templates.Footer()
-  <script src="/javascript/fetch.js"></script>
+  <script src="/javascript/sudoku.js"></script>
 </body>
 }
 }
@@ -37,7 +37,9 @@ templ sudoku() {
     Sudoku Solver
   </p>
 
-  <div id="sudoku-board" class="flex justify-center pb-5">
+  <div class="flex justify-center pb-5">
+    <div id="sudoku-board" class="flex justify-center pb-5 ring ring-orange-500">
+    </div>
   </div>
 
 </div>
@@ -48,30 +50,22 @@ templ summary() {
   <p class="text-2xl text-orange-500 block pb-5">Methodology</p>
 
   <p class="text-slate-100 pb-5">
-    I found that making the sudoku board as a standalone application to be the
-    easiest method of development. This is because server side rendering
-    requires me to rebuild the project to apply changes. Manually rebuilding
-    all the time added lots of friction to the development process, which is
-    why I decided to first build the core structure and functionality with
-    javascript. Then, after the application was completed, I would focus on
-    embedding the applicaiton into my website and applying styling.
+    I found that making the sudoku board as a standalone application to be the easiest method of development.
+    This is because server side rendering requires me to rebuild the project to apply changes.
+    Manually rebuilding all the time added lots of friction to the development process, which is why I decided to first build the core structure and functionality with javascript.
+    Then, after the application was completed, I would focus on embedding the applicaiton into my website and applying styling.
   </p>
 
   <p class="text-2xl text-orange-500 block pb-5">Building The Sudoku Board</p>
 
   <p class="text-slate-100 pb-5">
-    The first step to implement the sudoku solver was to create the 
-    board. The requirements for the board were that it needed to be a 9x9 grid
-    of cells, and each cell needed to allow the user to enter a number. For
-    this I decided to use the grid element for laying out the cells and using
-    an input element for each cell. I created a draw board function that takes
-    in an id and appends the generated board to that element.
+    The first step to implement the sudoku solver was to create the board.
+    The requirements for the board were that it needed to be a 9x9 grid of cells, and each cell needed to allow the user to enter a number.
+    For this, I decided to use a grid element to lay out the cells and use an input element for each cell.
+    I created a make_board function that takes in an element id and appends the generated board to that element.
   </p>
 
   <div class="flex justify-center p-5 pt-0">
-  <p>
-  todo: add image of first board iteration
-  </p>
   <img src="/media/projects/js-mini/fetch/canvas-boxes-lines.jpeg"
        alt="drawing of random boxes and lines on the canvas"
        width="500" height="500"
@@ -79,17 +73,15 @@ templ summary() {
   </div>
 
   <p class="text-slate-100 pb-5">
-    above we see my first iteration. This is a 9x9 grid of div elements that
-    coontain a header to display the cell number. After createing the 9x9 grid,
-    I populated each spot in the grid with another 9x9 grid. The result is a
-    grid of grids. I then iterated over the sub grides and added all of the
-    cells. I chose the grid of grids to make it easier to style with the trade
-    off of making it more tricky to partition the 2d array of cells into the
-    3x3 grid of 3x3 grids. Below is the final board layout completed.
+    above we see my first iteration.
+    This is a 9x9 grid of div elements that coontain a header to display the cell number.
+    After createing the 9x9 grid, I populated each spot in the grid with another 9x9 grid.
+    The result is a grid of grids.
+    I then iterated over the sub grides and added all of the cells.
+    I chose the grid of grids to make it easier to style with the trade off of making it more tricky to partition the 2d array of cells into the 3x3 grid of 3x3 grids. Below is the final board layout completed.
   </p>
 
   <div class="flex justify-center p-5 pt-0">
-  <p>todo: add image of final board layout</p>
   <img src="/media/projects/js-mini/fetch/BouncyBall.gif"
        alt="gif of a ball floating around the canvas"
        width="500" height="500"
