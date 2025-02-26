@@ -37,11 +37,24 @@ templ sudoku() {
     Sudoku Solver
   </p>
 
-  <div class="flex justify-center pb-5">
-    <div id="sudoku-board" class="flex justify-center pb-5 ring ring-orange-500">
+  <div class="flex flex-col justify-center">
+    <div class="flex justify-center pb-5">
+      <div id="sudoku-board" class="flex justify-center pb-5 ring ring-orange-500">
+      </div>
+    </div>
+
+    <div class="flex flex-row">
+      <div class="flex flex-col items-end grow">
+          <button id="sudoku-solve" type="button" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">solve</button>
+          <button id="sudoku-reset" type="button" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">reset</button>
+          <button id="sudoku-clear" type="button" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">clear</button>
+      </div>
+
+      <div class="flex flex-col items-start pl-20 grow">
+        <textarea id="solver-output" rows="5" cols="20" readonly class="rounded-md ring ring-orange-500">Fill in the needed cells and click solve.</textarea>
+      </div>
     </div>
   </div>
-
 </div>
 }
 

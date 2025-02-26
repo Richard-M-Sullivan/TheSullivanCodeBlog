@@ -23,7 +23,7 @@ function create_board(e_id) {
 
   // create a grid that holds 9 elements - the main grid
   const main_grid = document.createElement("div");
-  make_grid(main_grid, 3, 3, 50*3);
+  make_grid(main_grid, 3, 3, 40*3);
   main_grid.style.gap = "3px 3px";
   sudoku_board.append(main_grid);
 
@@ -31,7 +31,7 @@ function create_board(e_id) {
   subGridList = [];
   for (i=0; i<9; i++) {
     subGridList[i] = document.createElement("div");
-    make_grid(subGridList[i], 3, 3, 50);
+    make_grid(subGridList[i], 3, 3, 40);
     subGridList[i].style.background = "white";
     main_grid.append(subGridList[i]);
   }
@@ -50,9 +50,6 @@ function create_board(e_id) {
     cell.setAttribute("type", "text");
     cell.setAttribute("minlength", "1");
     cell.setAttribute("maxlength", "1");
-    cell.setAttribute("pattern", "[0-9]{1,1}");
-
-
     
     if (i%3 == 0) {
       col_select += 1;
