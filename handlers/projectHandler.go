@@ -6,6 +6,7 @@ import (
 	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates"
 	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates/projects/homebrew_computer"
 	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates/projects/js_practice"
+	"github.com/Richard-M-Sullivan/TheSullivanCodeBlog/templates/projects/sudoku_solver"
 	"github.com/a-h/templ"
 )
 
@@ -27,6 +28,9 @@ func ClosedHandler(w http.ResponseWriter, r *http.Request) {
 	case "js-practice":
 		component = templates.JSPracticeClosed()
 
+	case "sudoku-solver":
+		component = templates.SudokuSolverClosed()
+
 	}
 
 	component.Render(r.Context(), w)
@@ -43,6 +47,9 @@ func OpenHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "js-practice":
 		component = templates.JSPracticeOpen()
+
+	case "sudoku-solver":
+		component = templates.SudokuSolverOpen()
 
 	}
 
@@ -101,6 +108,20 @@ func JSPractice(w http.ResponseWriter, r *http.Request) {
 	component.Render(r.Context(), w)
 }
 
+func SudokuSolver(w http.ResponseWriter, r *http.Request) {
+	var component templ.Component
+
+	chapter := r.PathValue("chapter")
+
+	switch chapter {
+	case "sudoku-solver":
+		component = sudoku_solver.SudokuSolver()
+
+	}
+
+	component.Render(r.Context(), w)
+}
+
 func ProjectHandlers() *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.Handle("/", http.HandlerFunc(ProjectHandler))
@@ -108,5 +129,6 @@ func ProjectHandlers() *http.ServeMux {
 	mux.Handle("/open/{project}", http.HandlerFunc(OpenHandler))
 	mux.Handle("/homebrew-computer/{chapter}", http.HandlerFunc(HomebrewComputer))
 	mux.Handle("/js-practice/{chapter}", http.HandlerFunc(JSPractice))
+	mux.Handle("/sudoku-solver/{chapter}", http.HandlerFunc(SudokuSolver))
 	return mux
 }

@@ -12,6 +12,9 @@ templ Project() {
     @ContentSection(){
     @JSPracticeClosed()
     }
+    @ContentSection(){
+    @SudokuSolverClosed()
+    }
   </main>
   @Footer()
 </body>
@@ -82,6 +85,39 @@ templ JSProjectSections() {
 <ul class="list-disc space-y-3 pl-4">
   <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
     <a href="/project/js-practice/fetch-box" class="">Fetch Box</a>
+  </li>
+</ul>
+}
+
+templ SudokuSolverClosed() {
+<div hx-get="/project/open/sudoku-solver" hx-swap="outerHTML transition:true" hx-trigger="click">
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+    Sudoku Solver
+  </p>
+</div>
+}
+
+templ SudokuSolverOpen() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/project/closed/sudoku-solver"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    Sudoku Solver
+  </p>
+  <p class="text-slate-100">
+    While in college, I created a terminal based sudoku solver using python. I
+    decided that this project deserved a proper UI, so I rewrote it in
+    javascript to run in the browser!
+  </p>
+  <br />
+  @SudokuSolverSections()
+</div>
+}
+
+templ SudokuSolverSections() {
+<p class="text-orange-500">Project Link:</p>
+<ul class="list-disc space-y-3 pl-4">
+  <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+    <a href="/project/sudoku-solver/sudoku-solver" class="">Sudoku Solver</a>
   </li>
 </ul>
 }
