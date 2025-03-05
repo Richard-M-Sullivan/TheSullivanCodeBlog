@@ -45,13 +45,13 @@ templ sudoku() {
 
     <div class="flex flex-row">
       <div class="flex flex-col items-end grow">
-          <button id="sudoku-solve" type="button" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">solve</button>
-          <button id="sudoku-reset" type="button" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">reset</button>
-          <button id="sudoku-clear" type="button" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">clear</button>
+          <button id="sudoku-solve" type="button" onmousedown="sudokuSolveBoard()" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">solve</button>
+          <button id="sudoku-reset" type="button" onmousedown="sudokuResetBoard()" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700">reset</button>
+          <button id="sudoku-clear" type="button" onmousedown="sudokuClearBoard()" class="rounded-md font-mono px-8 mb-5 ring ring-orange-500 text-orange-500 transition-colors duration-200 hover:bg-slate-700" >clear</button>
       </div>
 
       <div class="flex flex-col items-start pl-20 grow">
-        <textarea id="solver-output" rows="5" cols="20" readonly class="rounded-md ring ring-orange-500">Fill in the needed cells and click solve.</textarea>
+        <textarea id="sudoku-output" rows="5" cols="20" readonly class="rounded-md ring ring-orange-500">Fill in the needed cells and click solve.</textarea>
       </div>
     </div>
   </div>
@@ -79,79 +79,99 @@ templ summary() {
   </p>
 
   <div class="flex justify-center p-5 pt-0">
-  <img src="/media/projects/js-mini/fetch/canvas-boxes-lines.jpeg"
-       alt="drawing of random boxes and lines on the canvas"
+  <img src="/media/projects/sudoku/board-main-grid-v0.png"
+       alt="An image of a 3x3 grid of cells."
        width="500" height="500"
        class="inline-block"> 
   </div>
 
   <p class="text-slate-100 pb-5">
-    above we see my first iteration.
-    This is a 9x9 grid of div elements that coontain a header to display the cell number.
-    After createing the 9x9 grid, I populated each spot in the grid with another 9x9 grid.
+    Above, we see my first iteration.
+    This is a 3x3 grid of div elements that contain a header to display the cell number.
+    After creating the 3x3 grid, I populated each spot in the grid with another 3x3 grid.
     The result is a grid of grids.
-    I then iterated over the sub grides and added all of the cells.
-    I chose the grid of grids to make it easier to style with the trade off of making it more tricky to partition the 2d array of cells into the 3x3 grid of 3x3 grids. Below is the final board layout completed.
+    I then iterated over all the sub grids to create and add all of the needed cells.
+    I chose the grid of grids to make it easier to style with the trade off of making it more tricky to partition the 2d array of cells into the nested grid layout.
+    Below is the final board completed.
   </p>
 
   <div class="flex justify-center p-5 pt-0">
-  <img src="/media/projects/js-mini/fetch/BouncyBall.gif"
-       alt="gif of a ball floating around the canvas"
+  <img src="/media/projects/sudoku/completed-sudoku-board.png"
+       alt="Image of a completed sudoku board built via javascript."
        width="500" height="500"
        class="inline-block"> 
   </div>
 
+  <p class="text-2xl text-orange-500 block pb-5">Embedding The JS Application</p>
+
   <p class="text-slate-100 pb-5">
+    Now that the grid was completed, I needed to embed it into my website.
+    The process was very simple.
+    I added a div with an ID of 'sudoku' into my website and then passed 'sudoku' as a parameter to the make_grid function.
   </p>
 
   <div class="flex justify-center p-5 pt-0">
-  <img src="/media/projects/js-mini/fetch/gravity-ball.gif"
-       alt="gif of a ball falling and bouncing onto the ground"
+  <img src="/media/projects/sudoku/embedded-board.png"
+       alt="Image of a sudoku board with the same styling as the main website."
        width="500" height="500"
        class="inline-block"> 
   </div>
 
-
-  <p class="text-2xl text-orange-500 block pb-5">Person</p>
+  <p class="text-2xl text-orange-500 block pb-5">Adding Controls</p>
 
   <p class="text-slate-100 pb-5">
+    To drive the application the user needs to be able to specify when they are ready for the computer to solve the sudoku puzzle.
+    A simple solution is to have a solve button. I also decided to have a reset and clear button to make it easier to edit the board.
+    In order to communicate information back to the user I also included a text area where I can put instructions.
+    For each button I specified a javascript function to call that will launch the different actions.
   </p>
 
   <div class="flex justify-center p-5 pt-0">
-  <img src="/media/projects/js-mini/fetch/slide-person.gif"
-       alt="gif of a ball falling and bouncing onto the ground"
+  <img src="/media/projects/sudoku/sudoku-buttons-and-text-area.png"
+       alt="An image of a submit, reset, and clear buttons as well as an area for text to be displayed."
        width="500" height="500"
        class="inline-block"> 
   </div>
 
+  <p class="text-2xl text-orange-500 block pb-5">The Model</p>
+
   <p class="text-slate-100 pb-5">
+    A model is the data that makes up the application's state.
+    In this case the model will be a two dimensional matrix of numbers that represents the entries on the board.
+    There will be two of these matrices - one for the initial state, and one for the solved state.
+    The purpose of having two matrices is to keep track of the original board values.
+    I use this information to help reset the board and to differentiate between user given and solved values.
   </p>
 
   <div class="flex justify-center p-5 pt-0">
-  <img src="/media/projects/js-mini/fetch/swizzle-person.gif"
-       alt="gif of a ball falling and bouncing onto the ground"
+  <img src=""
+       alt="A dictionary containing a current and solved sudoku matrix."
        width="500" height="500"
        class="inline-block"> 
   </div>
 
-  <p class="text-2xl text-orange-500 block pb-5">Dog</p>
-
+  <p class="text-2xl text-orange-500 block pb-5">Sudoku Solving Algorithm</p>
   <p class="text-slate-100 pb-5">
+    The function used to solve the sudoku puzzle is a recursive algorithm.
+    The first step is to check if the current board is solved or not.
+    If the board is solved then we reached the base case and can return the solved board state.
+    If the board is not solved, then we reached the recursive case.
+    In this event, we curate a list of possible moves and call the algorithm again on each one, passing the new board to the algorithm.
+    If we get back a solved board, we return it and stop, but if not we keep going.
+    If all options have been tried and no solution was found, then the puzzle has no solution.
   </p>
 
-  <div class="flex justify-center p-5 pt-0">
-  <img src="/media/projects/js-mini/fetch/person-dog.png"
-       alt="gif of a ball falling and bouncing onto the ground"
-       width="500" height="500"
-       class="inline-block"> 
-  </div>
-
-  <p class="text-2xl text-orange-500 block pb-5">Adding Interaction</p>
+  <p class="text-2xl text-orange-500 block pb-5">Checking Valid Board State</p>
   <p class="text-slate-100 pb-5">
+    To verify if the board is valid, we need to check each row, column, and grouping to verify that there are no duplicate values.
+    If we do not encounter any empty spaces, and the board is valid, then the board is solved.
   </p>
 
-  <p class="text-2xl text-orange-500 block pb-5">Improvements</p>
+  <p class="text-2xl text-orange-500 block pb-5">Back Tracking</p>
   <p class="text-slate-100 pb-5">
+    Backtracking is handled implicately - by recursively calling the solve function a tree is built.
+    When the function is called a new path is added to the stack.
+    When the function exits that checked path is popped from the stack and returns to the previous function call.
   </p>
 
 }
