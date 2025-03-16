@@ -309,11 +309,19 @@ function findSudokuSolution(board=null) {
 }
 
 function sudokuSolveBoard() {
-    originalBoard = getSudokuBoard();
+    let board = getSudokuBoard();
+
+    // if the board is solved, do not overwrite the original board the solution
+    // is attached to.
+    if (board.isFull() !== true || board.isValid() !== true) {
+        originalBoard = getSudokuBoard();
+    }
+
     solutionBoard = findSudokuSolution();
 
     if (solutionBoard === false) {
         sudokuPrint("There is no solution.");
+        solutionBoard = new SudokuBoard();
     } else {
         setSudokuBoard(solutionBoard);
         sudokuPrint("Solution found");
