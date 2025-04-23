@@ -19,7 +19,12 @@ templ SudokuSolver() {
     }
   </main>
   @templates.Footer()
-  <script src="/javascript/sudoku.js"></script>
+  <script type="module">
+    import {sudokuSolveBoard, sudokuResetBoard, sudokuClearBoard} from "/javascript/sudoku.js";
+    window.sudokuSolveBoard = sudokuSolveBoard;
+    window.sudokuResetBoard = sudokuResetBoard;
+    window.sudokuClearBoard = sudokuClearBoard;
+  </script>
 </body>
 }
 }

@@ -6,6 +6,13 @@
 // This is a test to learn about the canvas element. This is for the purpose of
 // creating interactive demonstrations for my website.
 
+import {SudokuBoard, BadNumFinder} from '/javascript/sudoku-board.js';
+
+////////////////////////
+// Solve board worker //
+////////////////////////
+
+const sudokuWorker = new Worker('/javascript/sudoku-worker.js', {type: "module"});
 
 //////////
 // view //
@@ -38,8 +45,8 @@ function create_board(e_id) {
   sudoku_board.append(main_grid);
 
   // add a 9 sub grids to the main grid
-  subGridList = [];
-  for (i=0; i<9; i++) {
+  let subGridList = [];
+  for (let i=0; i<9; i++) {
     subGridList[i] = document.createElement("div");
     make_grid(subGridList[i], 3, 3, 40);
     subGridList[i].style.background = "white";
@@ -49,7 +56,7 @@ function create_board(e_id) {
   // create 81 cells, and append them in a specific order into the grid
   let col_select = -1;
   let row_select = -1;
-  for (i=0; i<(9*9); i++) {
+  for (let i=0; i<(9*9); i++) {
     const cell = document.createElement("input");
     cell.id = "cell-" + i;
     cell.style.border = "1px solid black";
@@ -79,236 +86,21 @@ function create_board(e_id) {
 // model //
 ///////////
 
-class BadNumFinder {
-    constructor() {
-        // bad numbers found
-        this.badNums = new Set();
-        // recording location of found numbers
-        this.numCords = {};
-    }
-
-    addNum(num, row, col) {
-        // if no number do not add coordinate
-        if (num === "") {
-            return;
-        }
-
-        // if first time seeing number create dictionary and list, then add item
-        if (this.numCords[num] === undefined) {
-            this.numCords[num] = [];
-            this.numCords[num].push({"num":num, "row":row, "col":col});
-        // if not first time seeing number add to dictionary and notate in badnumber set
-        } else {
-            this.numCords[num].push({"num":num, "row":row, "col":col});
-            this.badNums.add(num);
-        }
-    }
-
-    getBadNums() {
-        let badData = [];
-        // iterate through all the bad numbers
-        for (let badNum of this.badNums.values()) {
-            // store the coordinates related to the bad number in bad data
-            badData = badData.concat(this.numCords[badNum]);
-        }
-
-        // then return bad data
-        return badData;
-    }
-}
-
-// sudoku board model
-class SudokuBoard {
-    constructor() {
-        this.rows = 9;
-        this.cols = 9;
-
-        this.board = [];
-
-        // pupulate the original and solution boards with empty data
-        for (let i=0; i<9; i++) {
-            let row = [];
-            for (let j=0; j<9; j++) {
-                row.push("");
-            }
-            this.board.push(row);
-        }
-    }
-
-    // filter out bad board values
-    cleanBoard() {
-        for (let row=0; row < this.rows; row++) {
-            for (let col=0; col < this.cols; col++) {
-                if ( /[1-9]/.test(this.board[row][col]) === false ){
-                    this.board[row][col] = "";
-                }
-            }
-        }
-    }
-
-    // reset all values to be blank
-    clearBoard() {
-        for (let row=0; row < this.rows; row++) {
-            for (let col=0; col < this.cols; col++) {
-                this.board[row][col] = "";
-            }
-        }
-    }
-
-    // check if a row is valid
-    checkRow(row_num) {
-        let numTracker = new BadNumFinder();
-        // iterate over all cols in the row
-        for (let col=0; col < this.cols; col++) {
-            let val = this.board[row_num][col];
-            // add the entry to the bad num finder
-            numTracker.addNum(val, row_num, col);
-        }
-
-        return numTracker.getBadNums();
-    }
-
-    // check if a column is valid
-    checkCol(col_num) {
-        let numTracker = new BadNumFinder();
-        // iterate over all cols in the row
-        for (let row=0; row < this.rows; row++) {
-            let val = this.board[row][col_num];
-            numTracker.addNum(val, row, col_num);
-        }
-
-        return numTracker.getBadNums();
-    }
-
-    // check if a block is valid
-    checkBlock(blockNum) {
-        let numTracker = new BadNumFinder();
-
-        // starting location of block
-        let startRow = Math.floor(blockNum / 3) * 3;
-        let startCol = (blockNum % 3) * 3;
-
-        // iterate through block values
-        for (let row=startRow; row < startRow+3; row++) {
-            for (let col=startCol; col < startCol+3; col++) {
-                // get the value from the cell
-                let val = this.board[row][col];
-
-                numTracker.addNum(val, row, col);
-            }
-        }
-
-        return numTracker.getBadNums();
-    }
-
-    isValid() {
-        let badNums = [];
-        for (let i=0; i < this.rows; i++) {
-            badNums =  this.checkRow(i);
-            if ( badNums.length !== 0 ) {
-                return false;
-            }
-            badNums =  this.checkCol(i);
-            if ( badNums.length !== 0 ) {
-                return false;
-            }
-            badNums =  this.checkBlock(i);
-            if ( badNums.length !== 0 ) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    isFull() {
-        for (let row=0; row < this.rows; row++) {
-            for (let col=0; col < this.cols; col++) {
-                if (this.board[row][col] === "") {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-}
-
-class Solution {
-    constructor() {
-        this.board = "";
-        this.status = "";
-    }
-}
 
 // creating two boards to manage program state
 let originalBoard = new SudokuBoard();
 let solutionBoard = new SudokuBoard();
 
-
 ////////////////
 // controller //
 ////////////////
 
-
-// solve controller
-function findSudokuSolution(board=null) {
-    // if no board is set, we are launching the program
-    if (board === null) {
-        board = getSudokuBoard();
+// solve button - launch solver web worker
+export function sudokuSolveBoard() {
+    if (document.getElementById("sudoku-output").value === "Solving... This can take a while.") {
+        return;
     }
 
-    let full = board.isFull();
-    let valid = board.isValid();
-    
-    // return if solved board - base case
-    if (full === true && valid === true) {
-        return board;
-    }
-        
-    // feturn if invalid board
-    if (valid === false) {
-        return false;
-    }
-
-    // if valid and not solved
-
-    // select an empty cell
-    let emptyCellRow = 0;
-    let emptyCellCol = 0;
-    for (let row = 0; row < board.rows; row++) {
-        for (let col = 0; col < board.cols; col++) {
-            // break if empty cell found
-            if ( board.board[row][col] === '') {
-                emptyCellCol = col;
-                emptyCellRow = row;
-                break;
-            }
-        }
-        // need to check again because we may have gotten here from searching
-        // all cols or from breaking
-        if ( board.board[emptyCellRow][emptyCellCol] === '') {
-            break;
-        }
-    }
-
-    // create a new board
-    let new_board = new SudokuBoard();
-    new_board.board = structuredClone(board.board);
-
-    // recurse with filled in cell
-    for (let i=1; i <= 9; i++) {
-        new_board.board[emptyCellRow][emptyCellCol] = i;
-        let result = findSudokuSolution(new_board);
-        if (result !== false) {
-            // return the solved board if found
-            return result;
-        }
-    }
-    // if no solved boards found
-    return false;
-}
-
-function sudokuSolveBoard() {
     let board = getSudokuBoard();
 
     // if the board is solved, do not overwrite the original board the solution
@@ -317,24 +109,34 @@ function sudokuSolveBoard() {
         originalBoard = getSudokuBoard();
     }
 
-    solutionBoard = findSudokuSolution();
+    sudokuPrint("Solving... This can take a while.");
+    sudokuWorker.postMessage(board);
+}
 
-    if (solutionBoard === false) {
+// when results come back update sudoku board to contain solution
+sudokuWorker.onmessage = function(boardData) {
+    if (boardData.data === false) {
         sudokuPrint("There is no solution.");
         solutionBoard = new SudokuBoard();
+
     } else {
-        setSudokuBoard(solutionBoard);
+        let resultBoard = new SudokuBoard();
+        resultBoard.setBoard(boardData.data.board);
+
+        setSudokuBoard(resultBoard);
         sudokuPrint("Solution found");
     }
 }
-// reset controller
-function sudokuResetBoard() {
+
+// reset button
+export function sudokuResetBoard() {
     setSudokuBoard(originalBoard);
     colorizeBoard();
     sudokuPrint("Fill in the needed cells and click solve.");
 }
-// clear controller
-function sudokuClearBoard() {
+
+// clear button
+export function sudokuClearBoard() {
     originalBoard.clearBoard();
     solutionBoard.clearBoard();
     setSudokuBoard(originalBoard);
@@ -354,7 +156,7 @@ function setSudokuBoard(board) {
 
 // get the values in the UI sudoku board
 function getSudokuBoard() {
-    board = new SudokuBoard();
+    let board = new SudokuBoard();
 
     for (let row=0; row < board.rows; row++) {
         for (let col=0; col < board.cols; col++) {
@@ -401,7 +203,7 @@ function colorizeBoard() {
     }
 
     // iterate through all the cells
-    for (cell of totalBadCells) {
+    for (let cell of totalBadCells) {
         colorizeCell(cell.row, cell.col, colorsBoard);
     }
 
@@ -442,7 +244,7 @@ function colorizeCell(row, col, board, color=darkRed) {
 function colorBoard(board) {
     for (let row=0; row < board.rows; row++) {
         for (let col=0; col < board.cols; col++) {
-            cell = document.getElementById("cell-" + (row*board.cols + col));
+            let cell = document.getElementById("cell-" + (row*board.cols + col));
 
             if (board.board[row][col] === "") {
                 board.board[row][col] = "white";
@@ -457,10 +259,8 @@ function removeCharacters() {
     let board = getSudokuBoard();
     board.cleanBoard();
     setSudokuBoard(board);
-
 }
 
 create_board("sudoku-board");
 
 addEventListener("input", colorizeBoard);
-
