@@ -27,3 +27,6 @@ go.sum
 
 # compiled templ files
 *templ.go
+
+# node modules
+node_modules
