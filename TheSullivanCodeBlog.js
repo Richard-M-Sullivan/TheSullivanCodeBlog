@@ -1,13 +1,104 @@
 const express = require('express');
+const handlebars = require('express-handlebars')
+        .create({defaultLayout: 'main'});
 
-const port = 8080;
+// how to do an include
+//let fortunes = require('./lib/fortunes.js');
 
+// create applicaiton
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('hello world');
+// app settings
+app.engine('handlebars', handlebars.engine);
+app.disable('x-powered-by');
+app.set('view engine', 'handlebars');
+
+app.set('port', process.env.PORT || 8080);
+
+// static files
+// css dir "./styles/"
+// media dir "./media/"
+// htmx dir "./htmx"
+// js dir "./javascript"
+app.use(express.static(__dirname + '/public'));
+
+// routes - with a template
+//app.get('/', function(req, res) {
+//  res.render('home');
+//});
+//
+//app.get('/about', function(req, res) {
+//  res.render('about',
+//    { fortune: fortunes.getFortune() }
+//  );
+//});
+
+app.get('/', function (req, res) {
+  res.send(" http.HandlerFunc(handlers.IndexHandler)")
+  // this one is simple, just need to render a single template
+  // res.render();
 });
 
-app.listen(port, () => {
-  console.log('The Sullivan Code Blog: Listening on port ' + port + '.');
+app.get('/blog', function(req, res) {
+  res.send("http.HandlerFunc(handlers.BlogHandler)");
+  // this one is simple, just need to render a single template
+  // res.render();
 });
+
+app.get('/project', function(req, res) {
+  res.send("http.StripPrefix('/project', handlers.ProjectHandlers()");
+  // this one is more complicated. I will need to write some ajax requests for
+  // this one
+  // res.render();
+});
+
+app.get('/tutorial', function(req, res) {
+  res.send("http.HandlerFunc(handlers.TutorialHandler)");
+  // this one is more complicated. I will need to write some ajax requests for
+  // this one
+  // res.render();
+});
+
+app.get('/note', function(req, res) {
+  res.send("http.StripPrefix('/note', handlers.NotesHandlers()");
+  // this one is more complicated. I will need to write some ajax requests for
+  // this one
+  // res.render();
+});
+
+app.get('/resume', function(req, res) {
+  res.send("http.HandlerFunc(handlers.ResumeHandler)");
+  // this one is simple, just need to render a single template
+  // res.render();
+});
+
+app.get('/support', function(req, res) {
+  res.send("http.HandlerFunc(handlers.SupportHandler)");
+  // this one is simple, just need to render a single template
+  // res.render();
+});
+
+//custom 404 page
+app.use(function(req, res) {
+  res.status(404)
+  //res.render('404');
+  res.send('404: Page not found.');
+});
+
+// custom 505 page
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.status(505);
+  //res.render('505');
+  res.send('505: Internal server error.');
+});
+
+// launch application
+app.listen(app.get('port'), function() {
+  console.log(
+    'Express started on http://localhost:' +
+    app.get('port') + '; serving The Sullivan Code Blog.\n\n' +
+    'Press Ctrl-C to terminate.'
+  );
+});
+
