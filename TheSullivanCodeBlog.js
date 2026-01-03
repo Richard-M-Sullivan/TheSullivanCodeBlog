@@ -43,46 +43,40 @@ app.get('/', function (req, res) {
 app.get('/blog', function(req, res) {
   // http.HandlerFunc(handlers.BlogHandler)
   // this one is simple, just need to render a single template
-  // res.render();
-  res.render('home');
+  res.render('blog');
 });
 
 app.get('/project', function(req, res) {
   // http.StripPrefix('/project', handlers.ProjectHandlers()
   // this one is more complicated. I will need to write some ajax requests for
   // this one
-  // res.render();
-  res.render('home');
+  res.render('project');
 });
 
 app.get('/tutorial', function(req, res) {
   // http.HandlerFunc(handlers.TutorialHandler)
   // this one is more complicated. I will need to write some ajax requests for
   // this one
-  // res.render();
-  res.render('home');
+  res.render('tutorial');
 });
 
 app.get('/note', function(req, res) {
   // http.StripPrefix('/note', handlers.NotesHandlers()
   // this one is more complicated. I will need to write some ajax requests for
   // this one
-  // res.render();
-  res.render('home');
+  res.render('note');
 });
 
 app.get('/resume', function(req, res) {
   // http.HandlerFunc(handlers.ResumeHandler)
   // this one is simple, just need to render a single template
-  // res.render();
-  res.render('home');
+  res.render('resume');
 });
 
 app.get('/support', function(req, res) {
   // http.HandlerFunc(handlers.SupportHandler)
   // this one is simple, just need to render a single template
-  // res.render();
-  res.render('home');
+  res.render('support');
 });
 
 //custom 404 page
