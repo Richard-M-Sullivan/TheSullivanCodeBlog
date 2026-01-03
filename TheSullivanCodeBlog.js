@@ -9,8 +9,9 @@ const handlebars = require('express-handlebars')
 const app = express();
 
 // app settings
-app.engine('handlebars', handlebars.engine);
 app.disable('x-powered-by');
+
+app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 app.set('port', process.env.PORT || 8080);
@@ -34,48 +35,54 @@ app.use(express.static(__dirname + '/public'));
 //});
 
 app.get('/', function (req, res) {
-  res.send(" http.HandlerFunc(handlers.IndexHandler)")
+  // http.HandlerFunc(handlers.IndexHandler)
   // this one is simple, just need to render a single template
-  // res.render();
+  res.render('home');
 });
 
 app.get('/blog', function(req, res) {
-  res.send("http.HandlerFunc(handlers.BlogHandler)");
+  // http.HandlerFunc(handlers.BlogHandler)
   // this one is simple, just need to render a single template
   // res.render();
+  res.render('home');
 });
 
 app.get('/project', function(req, res) {
-  res.send("http.StripPrefix('/project', handlers.ProjectHandlers()");
+  // http.StripPrefix('/project', handlers.ProjectHandlers()
   // this one is more complicated. I will need to write some ajax requests for
   // this one
   // res.render();
+  res.render('home');
 });
 
 app.get('/tutorial', function(req, res) {
-  res.send("http.HandlerFunc(handlers.TutorialHandler)");
+  // http.HandlerFunc(handlers.TutorialHandler)
   // this one is more complicated. I will need to write some ajax requests for
   // this one
   // res.render();
+  res.render('home');
 });
 
 app.get('/note', function(req, res) {
-  res.send("http.StripPrefix('/note', handlers.NotesHandlers()");
+  // http.StripPrefix('/note', handlers.NotesHandlers()
   // this one is more complicated. I will need to write some ajax requests for
   // this one
   // res.render();
+  res.render('home');
 });
 
 app.get('/resume', function(req, res) {
-  res.send("http.HandlerFunc(handlers.ResumeHandler)");
+  // http.HandlerFunc(handlers.ResumeHandler)
   // this one is simple, just need to render a single template
   // res.render();
+  res.render('home');
 });
 
 app.get('/support', function(req, res) {
-  res.send("http.HandlerFunc(handlers.SupportHandler)");
+  // http.HandlerFunc(handlers.SupportHandler)
   // this one is simple, just need to render a single template
   // res.render();
+  res.render('home');
 });
 
 //custom 404 page
