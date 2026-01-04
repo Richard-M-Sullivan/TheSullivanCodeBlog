@@ -1,2 +1,123 @@
-<h1>Notes Page</h1>
-<p>The Sullivan Code Blog</p>
+{{>header title='TSCB Projects'}}
+<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-center sm:items-center">
+  {{>nav}}
+  <main class="flex-grow justify-start">
+    {{#> section}}
+      <div hx-get="/note/open/useful-links" hx-swap="outerHTML transition:true" hx-trigger="click">
+        <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+          Useful Links
+        </p>
+      </div>
+    {{/section}}
+
+    {{#> section}}
+      <div hx-get="/note/open/python" hx-swap="outerHTML transition:true" hx-trigger="click">
+        <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+          Python
+        </p>
+      </div>
+    {{/section}}
+
+    {{#> section}}
+      <div hx-get="/note/open/golang" hx-swap="outerHTML transition:true" hx-trigger="click">
+        <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+          GoLang
+        </p>
+      </div>
+    {{/section}}
+
+    {{#> section}}
+      <div hx-get="/note/open/c" hx-swap="outerHTML transition:true" hx-trigger="click">
+        <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all">
+          C
+        </p>
+      </div>
+    {{/section}}
+
+  </main>
+  {{>footer}}
+</body>
+
+{{!
+//----------------------------------------------------------------------------//
+templ NotesOpenUsefulLinks() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/useful-links"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    Useful Links
+  </p>
+  <p class="text-slate-100">
+    Enjoy this collection of links that are both useful and interesting.
+  </p>
+  <br />
+  <ul class="list-disc space-y-3 pl-4">
+    <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+      <a href="https://www.youtube.com" class="">youtube</a>
+    </li>
+  </ul>
+</div>
+}
+
+//----------------------------------------------------------------------------//
+templ NotesOpenPython() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/python"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    Python
+  </p>
+  <p class="text-slate-100">
+    Python was one of the first languages that clicked for me. The simple
+    yet powerful syntax makes Python my favorite scripting language.
+  </p>
+  <br />
+  <p class="text-orange-500">Chapters:</p>
+  <ul class="list-disc space-y-3 pl-4">
+    <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+      <a href="/note/python/introduction" class="">Getting Started</a>
+    </li>
+  </ul>
+</div>
+
+//----------------------------------------------------------------------------//
+templ NotesOpenGoLang() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/golang"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    GoLang
+  </p>
+  <p class="text-slate-100">
+    GoLang is a small C-like programming language that comes with tons of
+    features out of the box. It comes with useful primitives for networking,
+    concurrency, and interfaces. Furthermore, GoLang is packaged with its own
+    standardized tools. What's not to like?
+  </p>
+  <br />
+  <p class="text-orange-500">Chapters:</p>
+  <ul class="list-disc space-y-3 pl-4">
+    <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+      <a href="/note/golang/introduction" class="">Getting Started</a>
+    </li>
+  </ul>
+</div>
+
+//----------------------------------------------------------------------------//
+templ NotesOpenC() {
+<div>
+  <p class="text-orange-500 hover:font-semibold cursor-pointer transition-all" hx-get="/note/closed/c"
+    hx-target="closest div" hx-swap="outerHTML transition:true" hx-trigger="click">
+    C
+  </p>
+  <p class="text-slate-100">
+    C is such an iconic language with a rich history. If you like building things
+    from scratch and being close to the hardware, C is the language for you!
+  </p>
+  <br />
+  <p class="text-orange-500">Chapters:</p>
+  <ul class="list-disc space-y-3 pl-4">
+    <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+      <a href="/note/c/introduction" class="">Getting Started</a>
+    </li>
+  </ul>
+</div>
+}}
+
