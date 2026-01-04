@@ -5,4 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <script> let FF_FOUC_FIX; </script>
+  <style>
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.1s ease-out;
+    }
+  </style>
+  <script type=module>
+    let coll = document.getElementsByClassName("collapsible");
+
+    for (let i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        let content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
 </head>
