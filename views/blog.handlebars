@@ -1,2 +1,13 @@
-<h1>Blog Page</h1>
-<p>The Sullivan Code Blog</p>
+{{>header title='TSCB Blog'}}
+<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
+  {{>nav}}
+  <main class="flex-grow justify-start">
+    {{#> section}}
+      <h2 class="text-slate-300 italic font-bold text-left mx-10 my-5">Blog</h2>
+      <p class="text-slate-400 text-left mx-10 my-5">
+        Welcome to the blog. More content is coming soon!
+      </p>
+    {{/section}}
+  </main>
+  {{>footer}}
+</body>

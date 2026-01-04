@@ -35,14 +35,10 @@ app.use(express.static(__dirname + '/public'));
 //});
 
 app.get('/', function (req, res) {
-  // http.HandlerFunc(handlers.IndexHandler)
-  // this one is simple, just need to render a single template
   res.render('home');
 });
 
 app.get('/blog', function(req, res) {
-  // http.HandlerFunc(handlers.BlogHandler)
-  // this one is simple, just need to render a single template
   res.render('blog');
 });
 
