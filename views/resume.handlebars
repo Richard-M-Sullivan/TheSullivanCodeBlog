@@ -1,2 +1,155 @@
-<h1>Resume Page</h1>
-<p>The Sullivan Code Blog</p>
+{{>header title='TSCB Resume'}}
+
+<body class="min-h-svh h-full bg-slate-800 flex flex-col justify-start sm:justify-start sm:items-center">
+  {{>nav}}
+  <main class="flex-grow justify-start">
+    {{#> section}}
+      <div class="p-5">
+        <section>
+          <h1 class="text-center text-2xl text-orange-500">Software Developer</h1>
+          <br />
+          <h1 class="text-2xl text-orange-500 block">Richard Sullivan</h1>
+          <p class="text-orange-500 pt-3">Austin, TX</p>
+          <p class="text-orange-500">richard.m.sullivan1@gmail.com</p>
+        </section>
+        <br />
+        <section>
+          <h1 class="text-2xl text-orange-500">Education</h1>
+          <div class="flex flex-row">
+            <div class="basis-full">
+              <p class="text-slate-100"><b>State University (TXST):</b> Graduated Dec 2023</p>
+              <p class="text-slate-100"><b>Degree:</b> Batchelor of Science in Computer Science</p>
+              <p class="text-slate-100"><b>Minor:</b> Mathematics</p>
+              <p class="text-slate-100"><b>GPA:</b> 3.68 / 4.00</p>
+            </div>
+            <div class="pl-3 basis-full">
+              <h2 class="text-slate-100"><b>Relevant Coursework: </b> </h2>
+              <p class="text-slate-100">
+                Data Structures & Algorithms, Object Oriented Programming, Data Mining, Software
+                Engineering, Machine Learning, Database Management, Parallel Programming, Linear Algebra, Statistics, Calculus
+                1, Calculus 2
+              </p>
+            </div>
+          </div>
+        </section>
+        <br />
+        <section class="">
+          <h1 class="text-2xl text-orange-500">Work Experience</h1>
+          <h2 class="text-slate-100"><b>Def-Logix</b> (Cyber Security Firm)</h2>
+          <p class="text-slate-100"><b>2023 - Present</b></p>
+          <p class="text-slate-100">3463 Magic Dr Suite 220, San Antonio, TX 78229</p>
+          <ul class="list-disc space-y-2 pt-3">
+            <li class="text-slate-100">
+              Mentorship of new hires to ensure rapid team integration and to establish a collaborative work
+              environment.
+            </li>
+            <li class="text-slate-100">
+              Maintainer of the build systems written in Make and Bash for many of the companys C and Python software projects
+            </li>
+            <li class="text-slate-100">
+              Standardized and consolidated project structures to make cross product features easier to implement
+            </li>
+            <li class="text-slate-100">Extended microservice capabilities through the development of plugins</li>
+            <li class="text-slate-100">Updated CI/CD pipelines to reflect build system changes and run unit tests</li>
+            <li class="text-slate-100">Containerized application with Docker and Docker Compose</li>
+            <li class="text-slate-100">Automated end-to-end testing and report generation</li>
+            <li class="text-slate-100">
+              Experienced with jira and confluence for project management and collaborative
+              developmenet
+            </li>
+          </ul>
+        </section>
+        <br />
+        <section class="">
+          <h1 class="text-2xl text-orange-500">Software Projects</h1>
+          <div class="">
+            <h2 class="text-slate-100"><b>Matchbox AI</b> (inspired by Donald Michie's 1961 AI research project MENACE)</h2>
+          </div>
+          <ul class="list-disc space-y-2 pt-3">
+            <li class="text-slate-100">
+              Constructed a machine learning system out of 304 matchboxes and over 1000 colored beads, which is able to learn
+              optimal tic tac toe strategy through reinforcement learning.
+            </li>
+            <li class="text-slate-100">
+              Leveraged knowledge of data structures to produce a graph of game states, while pruning rotations and
+              reflections to minimize graph size.
+            </li>
+            <li class="text-slate-100">
+              Used generated graph to create printable instructions, so an operator can effectively perform the steps needed
+              to use the matchbox computer.
+            </li>
+          </ul>
+          <br />
+          <h2 class="text-slate-100"><b>Riemann Sum Table Generator</b></h2>
+          <ul class="list-disc space-y-2 pt-3">
+            <li class="text-slate-100">
+              Python and Tkinter GUI application that calculates Riemann sums using various rules (left/right endpoint,
+              midpoint, trapezoid, and Simpson's rule).
+            </li>
+            <li class="text-slate-100">Used said program to assist in grading calculus homework.</li>
+          </ul>
+          <br />
+          <h2 class="text-slate-100"><b>Sudoku Solver</b></h2>
+          <ul class="list-disc space-y-2 pt-3">
+            <li class="text-slate-100">
+              A Python terminal application that utilizes recursion and backtracking to solve sudoku
+              puzzles.
+            </li>
+          </ul>
+        </section>
+        <br />
+        <section class="">
+          <h1 class="text-2xl text-orange-500">Technical Skills</h1>
+          <h2 class="text-slate-100"><b>Languages and Technologies</b></h2>
+          <div class="pt-3 flex flex-row">
+            <div class="basis-full">
+              <h2 class="text-slate-100"><b>Proficient:</b></h2>
+              <p class="text-slate-100">
+                Python3, GNU Make, Bash Scripting, Linux, Git/GitHub, Docker, Docker Compose, Robot
+                Framework (test framework for python), Golang, HTML/CSS, HTMX, Tailwind
+              </p>
+            </div>
+            <div class="basis-full">
+              <h2 class="text-slate-100"><b>Familiar</b></h2>
+              <p class="text-slate-100">
+                C, C++, Java, Javascript, Node, Express, React, Flask, Ansible, Lisp
+                (SBCL & Guile)
+              </p>
+            </div>
+          </div>
+        </section>
+        <br />
+        <section class="">
+          <h1 class="text-2xl text-orange-500">Honors & Distinctions</h1>
+          <p class="text-slate-100">
+            <b>Dean's List (3 of 4 semesters):</b> Awarded to students with above a 3.5 GPA in a given semester
+          </p>
+          <p class="text-slate-100 pt-3">
+            <b>EMT (2017):</b> Completed Emergency Medical Technician training for both national and state
+            certification
+          </p>
+          <ul class="list-disc space-y-2 pt-3">
+            <li class="text-slate-100">
+              Learned to operate in a fast pace, high stress environment performing rideouts with
+              Austin EMS.
+            </li>
+            <li class="text-slate-100">
+              Supported nurses and provided care at St. David's Medical Hospital in the emergency care
+              ward.
+            </li>
+          </ul>
+          <p class="text-slate-100 pt-3"><b>Eagle Scout (2015):</b> Highest achievable rank in scoutung</p>
+          <ul class="list-disc space-y-2 pt-3">
+            <li class="text-slate-100">
+              Over a decade of commitment to organizing and leading troop meetings,
+              helping scouts with rank advancement, panning events and service projects, and
+              attending merit badge classes and workshops.
+            </li>
+          </ul>
+        </section>
+      </div>
+    {{/section}}
+  </main>
+  {{>footer}}
+</body>
+
