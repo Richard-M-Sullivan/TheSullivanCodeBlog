@@ -43,35 +43,58 @@ app.get('/blog', function(req, res) {
 });
 
 app.get('/project', function(req, res) {
-  // http.StripPrefix('/project', handlers.ProjectHandlers()
-  // this one is more complicated. I will need to write some ajax requests for
-  // this one
   res.render('project');
 });
 
+app.get('/project/homebrew-computer/introduction', function(req, res) {
+  res.render('project/homebrew-computer/introduction');
+});
+
+app.get('/project/homebrew-computer/logic-gates', function(req, res) {
+  res.render('project/homebrew-computer/logic-gates');
+});
+
+app.get('/project/homebrew-computer/logisim', function(req, res) {
+  res.render('project/homebrew-computer/logisim');
+});
+
+app.get('/project/homebrew-computer/chips', function(req, res) {
+  res.render('project/homebrew-computer/chips');
+});
+
+app.get('/project/homebrew-computer/prototype', function(req, res) {
+  res.render('project/homebrew-computer/prototype');
+});
+
+app.get('/project/homebrew-computer/final-design', function(req, res) {
+  res.render('project/homebrew-computer/final-design');
+});
+
+app.get('/project/homebrew-computer/parts', function(req, res) {
+  res.render('project/homebrew-computer/parts');
+});
+
+app.get('/project/homebrew-computer/final-assembly', function(req, res) {
+  res.render('project/homebrew-computer/final-assembly');
+});
+
+app.get('/project/homebrew-computer/next-steps', function(req, res) {
+  res.render('project/homebrew-computer/next-steps');
+});
+
 app.get('/tutorial', function(req, res) {
-  // http.HandlerFunc(handlers.TutorialHandler)
-  // this one is more complicated. I will need to write some ajax requests for
-  // this one
   res.render('tutorial');
 });
 
 app.get('/note', function(req, res) {
-  // http.StripPrefix('/note', handlers.NotesHandlers()
-  // this one is more complicated. I will need to write some ajax requests for
-  // this one
   res.render('note');
 });
 
 app.get('/resume', function(req, res) {
-  // http.HandlerFunc(handlers.ResumeHandler)
-  // this one is simple, just need to render a single template
   res.render('resume');
 });
 
 app.get('/support', function(req, res) {
-  // http.HandlerFunc(handlers.SupportHandler)
-  // this one is simple, just need to render a single template
   res.render('support');
 });
 
