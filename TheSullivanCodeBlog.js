@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars = require('express-handlebars')
         .create({defaultLayout: 'main'});
 
+const fs = require('fs');
 // how to do an include
 //let fortunes = require('./lib/fortunes.js');
 
@@ -16,23 +17,9 @@ app.set('view engine', 'handlebars');
 
 app.set('port', process.env.PORT || 8080);
 
-// static files
-// css dir "./styles/"
-// media dir "./media/"
-// htmx dir "./htmx"
-// js dir "./javascript"
 app.use(express.static(__dirname + '/public'));
 
-// routes - with a template
-//app.get('/', function(req, res) {
-//  res.render('home');
-//});
-//
-//app.get('/about', function(req, res) {
-//  res.render('about',
-//    { fortune: fortunes.getFortune() }
-//  );
-//});
+let autoViews = {};
 
 app.get('/', function (req, res) {
   res.render('home');
@@ -44,42 +31,6 @@ app.get('/blog', function(req, res) {
 
 app.get('/project', function(req, res) {
   res.render('project');
-});
-
-app.get('/project/homebrew-computer/introduction', function(req, res) {
-  res.render('project/homebrew-computer/introduction');
-});
-
-app.get('/project/homebrew-computer/logic-gates', function(req, res) {
-  res.render('project/homebrew-computer/logic-gates');
-});
-
-app.get('/project/homebrew-computer/logisim', function(req, res) {
-  res.render('project/homebrew-computer/logisim');
-});
-
-app.get('/project/homebrew-computer/chips', function(req, res) {
-  res.render('project/homebrew-computer/chips');
-});
-
-app.get('/project/homebrew-computer/prototype', function(req, res) {
-  res.render('project/homebrew-computer/prototype');
-});
-
-app.get('/project/homebrew-computer/final-design', function(req, res) {
-  res.render('project/homebrew-computer/final-design');
-});
-
-app.get('/project/homebrew-computer/parts', function(req, res) {
-  res.render('project/homebrew-computer/parts');
-});
-
-app.get('/project/homebrew-computer/final-assembly', function(req, res) {
-  res.render('project/homebrew-computer/final-assembly');
-});
-
-app.get('/project/homebrew-computer/next-steps', function(req, res) {
-  res.render('project/homebrew-computer/next-steps');
 });
 
 app.get('/tutorial', function(req, res) {
@@ -97,6 +48,21 @@ app.get('/resume', function(req, res) {
 app.get('/support', function(req, res) {
   res.render('support');
 });
+
+app.use(function (req, res, next) {
+  let path = req.path.toLowerCase();
+  // check cache; if it's there, render the view
+  if (autoViews[path]) return res.render(autoViews[path]);
+  // if it is not in the cache, see if there is a .handlebars file that
+  // matches.
+  if ( fs.existsSync(__dirname + '/views' + path + '.handlebars') ) {
+    autoViews[path] = path.replace(/^\//, '');
+    return res.render(autoViews[path]);
+  }
+  // no view found pass on to the next view
+  next();
+});
+
 
 //custom 404 page
 app.use(function(req, res) {
