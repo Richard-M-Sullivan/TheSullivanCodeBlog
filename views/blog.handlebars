@@ -3,11 +3,41 @@
   {{>nav}}
   <main class="flex-grow justify-start">
     {{#> section}}
-      <h2 class="text-slate-300 italic font-bold text-left mx-10 my-5">Blog</h2>
-      <p class="text-slate-400 text-left mx-10 my-5">
-        Welcome to the blog. More content is coming soon!
+      <p class="text-slate-100">
+        Welcome to the Blog! I hope you find my writings entertaining and inspiring.
       </p>
+      <br />
+      <h1 class="text-orange-500 font-bold">Recent Articles:</h1>
+      <div class="pl-4 pr-4">
+        <ul class="list-disc space-y-3 pl-4">
+          <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+            <a href="/blog/2026/january/2026-01-17" class="">First Blog Entry</a>
+          </li>
+        </ul>
+      </div>
+    {{/section}}
+    {{#> section}}
+      <div>
+        <button type="button" class="collapsible text-orange-500 hover:font-semibold cursor-pointer transition-all">
+          2026
+        </button>
+        <div class="content pl-4 pr-4">
+          <div>
+            <button type="button" class="collapsible text-orange-500 hover:font-semibold cursor-pointer transition-all">
+              January
+            </button>
+            <div class="content pl-4 pr-4">
+              <ul class="list-disc space-y-3 pl-4">
+                <li class="transition-all text-slate-100 hover:font-semibold hover:text-blue-500">
+                  <a href="/blog/2026/january/2026-01-17" class="">17th - First Blog Entry</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     {{/section}}
   </main>
   {{>footer}}
 </body>
+
