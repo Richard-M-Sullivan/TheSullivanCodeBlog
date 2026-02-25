@@ -15,7 +15,7 @@ app.disable('x-powered-by');
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
 
