@@ -30,3 +30,6 @@ go.sum
 
 # node modules
 node_modules
+
+#vscode config
+.vscode
