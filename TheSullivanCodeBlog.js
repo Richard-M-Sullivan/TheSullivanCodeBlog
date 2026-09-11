@@ -3,8 +3,6 @@ const handlebars = require('express-handlebars')
         .create({defaultLayout: 'main'});
 
 const fs = require('fs');
-// how to do an include
-//let fortunes = require('./lib/fortunes.js');
 
 // create applicaiton
 const app = express();
@@ -19,46 +17,21 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
 
-let autoViews = {};
+const pages = new Set(
+  fs.readdirSync('views', { recursive: true })
+    .filter(f => f.endsWith('.handlebars'))
+    .map(f => f.slice(0, -'.handlebars'.length))
+    .filter(f => !f.startsWith('layouts/') && !f.startsWith('partials/'))
+);
 
 app.get('/', function (req, res) {
   res.render('home');
 });
 
-app.get('/blog', function(req, res) {
-  res.render('blog');
-});
-
-app.get('/project', function(req, res) {
-  res.render('project');
-});
-
-app.get('/tutorial', function(req, res) {
-  res.render('tutorial');
-});
-
-app.get('/note', function(req, res) {
-  res.render('note');
-});
-
-app.get('/resume', function(req, res) {
-  res.render('resume');
-});
-
-app.get('/support', function(req, res) {
-  res.render('support');
-});
-
 app.use(function (req, res, next) {
-  let path = req.path.toLowerCase();
-  // check cache; if it's there, render the view
-  if (autoViews[path]) return res.render(autoViews[path]);
-  // if it is not in the cache, see if there is a .handlebars file that
-  // matches.
-  if ( fs.existsSync(__dirname + '/views' + path + '.handlebars') ) {
-    autoViews[path] = path.replace(/^\//, '');
-    return res.render(autoViews[path]);
-  }
+  let path = req.path.slice(1);
+  if (pages.has(path)) return res.render(path);
+
   // no view found pass on to the next view
   next();
 });
@@ -71,12 +44,12 @@ app.use(function(req, res) {
   res.send('404: Page not found.');
 });
 
-// custom 505 page
+// custom 500 page
 app.use(function(err, req, res, next) {
   console.error(err.stack);
-  res.status(505);
-  //res.render('505');
-  res.send('505: Internal server error.');
+  res.status(500);
+  //res.render('500');
+  res.send('500: Internal server error.');
 });
 
 // launch application
