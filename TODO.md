@@ -19,23 +19,32 @@ artifact that happens to contain the classes the pages need, because the deleted
 `.templ` files used the same class strings. It will silently fail to pick up the
 first new utility class added to a `.handlebars` file.
 
-- [ ] Delete `Makefile` — it runs `templ generate` and `go run server.go`, neither of which exists
-- [ ] Install Tailwind locally (`npm i -D tailwindcss @tailwindcss/cli`) — there is no `tailwindcss` in `node_modules/.bin` and none on PATH
-- [ ] Add `scripts` to `package.json` (there are none today):
+^^^^^ this is ok. I don't plan on rebuilding the css, I just want the existing css 
+to continue working till I am done using tailwind.
+
+- [X] Delete `Makefile` — it runs `templ generate` and `go run server.go`, neither of which exists
+- [-] Install Tailwind locally (`npm i -D tailwindcss @tailwindcss/cli`) — there is no `tailwindcss` in `node_modules/.bin` and none on PATH
+
+^^^^ I decided not to do this. I don't need to rebuild the css document.
+
+- [X] Add `scripts` to `package.json` (there are none today):
       - `dev`: `node --watch TheSullivanCodeBlog.js`
       - `css:watch`: `tailwindcss -i ./input.css -o ./public/styles/output.css --watch`
       - `build`: `tailwindcss -i ./input.css -o ./public/styles/output.css --minify`
-- [ ] Delete `tailwind.config.js` — 25KB verbatim dump of Tailwind's default theme with `presets: []`, exactly equivalent to no config. `tailwind.config.js.original` is the intended file. (Moot if going to v4, which needs no config.)
-- [ ] Fix the content glob if keeping v3 — currently `./templates/**/*.templ`, a directory deleted in 6677228, so it scans zero files and emits only preflight
-- [ ] Decide deliberately: commit `public/styles/output.css`, or gitignore it and build on deploy. Right now it's committed *and* stale — worst of both.
-- [ ] Commit or discard the modified `package-lock.json`
+
+- [X] Delete `tailwind.config.js` — 25KB verbatim dump of Tailwind's default theme with `presets: []`, exactly equivalent to no config. `tailwind.config.js.original` is the intended file. (Moot if going to v4, which needs no config.)
+- [X] Fix the content glob if keeping v3 — currently `./templates/**/*.templ`, a directory deleted in 6677228, so it scans zero files and emits only preflight
+- [X] Decide deliberately: commit `public/styles/output.css`, or gitignore it and build on deploy. Right now it's committed *and* stale — worst of both.
+- [X] Commit or discard the modified `package-lock.json`
 
 ---
 
 ## Phase 1 — Server correctness
 
-- [ ] **Set `NODE_ENV=production` on the deployed server.** Express only enables `view cache` when `env === 'production'` (`node_modules/express/lib/application.js:138`), and `NODE_ENV` is set nowhere in this project. Templates are currently re-read and recompiled from disk on every render, in every environment. Bigger real win than any other item here.
-- [ ] Replace the per-request `autoViews` middleware (`TheSullivanCodeBlog.js:51`) with a boot-time walk of `views/`:
+- [X] **Set `NODE_ENV=production` on the deployed server.** Express only enables `view cache` when `env === 'production'` (`node_modules/express/lib/application.js:138`), and `NODE_ENV` is set nowhere in this project. Templates are currently re-read and recompiled from disk on every render, in every environment. Bigger real win than any other item here.
+^^^^ this will be done by the script I added to the package.json file
+
+- [X] Replace the per-request `autoViews` middleware (`TheSullivanCodeBlog.js:51`) with a boot-time walk of `views/`:
       ```js
       const pages = new Set(
         fs.readdirSync(viewsDir, { recursive: true })
@@ -48,12 +57,17 @@ first new utility class added to a `.handlebars` file.
       fixes the partials leak below in the same six lines. 25 view files today.
       (Avoid the `res.render` callback + `next()` variant: it turns Handlebars
       syntax errors into 404s, hiding real template bugs.)
-- [ ] **Stop serving partials and layouts publicly.** Verified: `GET /partials/nav` → 200 with the nav wrapped in a bare `<html>`; `GET /layouts/main` → 200 with a doubly-nested doctype. Both indexable by search engines. Fixed by the filter above.
-- [ ] Delete the seven explicit routes (`/blog`, `/project`, `/tutorial`, `/note`, `/resume`, `/support`, and `/`) — each only renders a view whose name matches its path, which is what the auto-view lookup already does. Server drops from ~90 lines to ~50.
-- [ ] Change `505` to `500` in the error handler (`TheSullivanCodeBlog.js:76`) — 505 means "HTTP Version Not Supported"
-- [ ] Drop the `.toLowerCase()` on the request path, or redirect to canonical lowercase. Verified `/BLOG` and `/blog` both return 200 — duplicate content, and it breaks the day a view filename has a capital.
-- [ ] Build real `404.handlebars` and `500.handlebars` views — both are commented out and currently send plain text
-- [ ] Remove the unused `fs` require comment referencing `./lib/fortunes.js` (`TheSullivanCodeBlog.js:5`)
+- [X] **Stop serving partials and layouts publicly.** Verified: `GET /partials/nav` → 200 with the nav wrapped in a bare `<html>`; `GET /layouts/main` → 200 with a doubly-nested doctype. Both indexable by search engines. Fixed by the filter above.
+^^^ this should be fixed now that the new boot time page connector is completed
+
+- [X] Delete the seven explicit routes (`/blog`, `/project`, `/tutorial`, `/note`, `/resume`, `/support`, and `/`) — each only renders a view whose name matches its path, which is what the auto-view lookup already does. Server drops from ~90 lines to ~50.
+
+- [X] Change `505` to `500` in the error handler (`TheSullivanCodeBlog.js:76`) — 505 means "HTTP Version Not Supported"
+
+- [X] Drop the `.toLowerCase()` on the request path, or redirect to canonical lowercase. Verified `/BLOG` and `/blog` both return 200 — duplicate content, and it breaks the day a view filename has a capital.
+
+- [X] Build real `404.handlebars` and `500.handlebars` views — both are commented out and currently send plain text
+- [X] Remove the unused `fs` require comment referencing `./lib/fortunes.js` (`TheSullivanCodeBlog.js:5`)
 
 ---
 
@@ -71,7 +85,7 @@ and two files (`project.handlebars`, `note.handlebars`) have already drifted to
 - [ ] Reduce every view to just its content — drops ~6 lines from each of 11 files
 - [ ] Reconcile the `sm:justify-start` vs `sm:justify-center` drift while consolidating
 - [ ] Delete `views/partials/button-text-reveal.handlebars` — unused, and has `href="page"` hardcoded
-- [ ] Sweep the 22 instances of `class=""`
+- [X] Sweep the 22 instances of `class=""`
 
 ---
 
