@@ -81,10 +81,10 @@ and two files (`project.handlebars`, `note.handlebars`) have already drifted to
 
 **Do this before Phase 5.** It is what makes the Tailwind removal small.
 
-- [ ] Move `<head>`, `<body>`, `nav`, `<main>`, and `footer` into `layouts/main.handlebars`
-- [ ] Reduce every view to just its content — drops ~6 lines from each of 11 files
-- [ ] Reconcile the `sm:justify-start` vs `sm:justify-center` drift while consolidating
-- [ ] Delete `views/partials/button-text-reveal.handlebars` — unused, and has `href="page"` hardcoded
+- [X] Move `<head>`, `<body>`, `nav`, `<main>`, and `footer` into `layouts/main.handlebars`
+- [X] Reduce every view to just its content — drops ~6 lines from each of 11 files
+- [X] Reconcile the `sm:justify-start` vs `sm:justify-center` drift while consolidating
+- [X] Delete `views/partials/button-text-reveal.handlebars` — unused, and has `href="page"` hardcoded
 - [X] Sweep the 22 instances of `class=""`
 
 ---
