@@ -1,0 +1,299 @@
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl">
+    How To Prepare For Job Ineterviews
+  </h1>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">What This Section Covers:</h2>
+  <p class="text-slate-100">This section covers the techniques one can use to learn system design and how to prepare for system design interviews.</p>
+{{/section}}
+
+
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl">
+    How To Learn System Design With Jordan Has No Life
+  </h1>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">How Jordan First Started With System Design</h2>
+  <p class="text-slate-100">
+    Jordan Has No Life is a system design youtuber.
+    He got his start reading the book Designing Data Intensive Applications and making videos about it, and afterwards noticed that other channels about system design did not have the same rigor as the book.
+    He decided to start making videos about other topics using his background knowledge from the DDIA to make better choices.
+  </p>
+  <br/>
+
+  <p class="text-slate-100"><em>Designing Data Driven Applications</em><b> - Read this book!</b></p>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">How Jordan Learns So Many Technologies</h2>
+  <p class="text-slate-100">
+    He keeps his ears open for technologies that are talked about, and then he researches them.
+    He mentioned that youtube summaries can be better than looking on the website at first becasue they do a better job explaining the gist of what the technology does.
+    After that look at the website and the documentation and try to use it.
+    He says that a bredth first learning algorithm is more practical.
+    It is better to know some about a lot of topics than to deep dive.
+    You can learn what you need to know as you implement your design with the said technologies.
+    He also thinks it is important to learn both fundamental things about technologies, but to also tailor your learning to what is practical - like what interviewers want you to know.
+    No matter what it is important to have personal projects to work on.
+  </p>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">Is Knowing System Design Practical Even If I Don't Design Systems</h2>
+  <p class="text-slate-100">
+    Yes, because it allows you to think about the big picture.
+    It helps you to know what data layout you should use to make processing easier.
+    It helps you to have a sense of where things can be optomized or better designed without getting too out of hand.
+  </p>
+</div>
+{{/section}}
+
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl">
+    How To Prepare For System Design Interviews With Meta Staff Engineer
+  </h1>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">What Is A System Design Interview</h2>
+  <p class="text-slate-100">
+    This is an assessment of whether you can architect systems that are performant and scale to large numbers of users.
+    You are at a white board and the interviewer gives you a problem to designing a specific website.
+  </p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">Product Design Problems</h3>
+  <p class="text-slate-100">
+    This is where you design an app or a website that does a thing. These are user facing systems.
+  </p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">Infrastructure Problems</h3>
+  <p class="text-slate-100">
+    This is where you design a non-user facing system. An example could be a message queue, a click aggregator, data processing pipeline, rate limiter.
+  </p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">What Are The Steps To Do The Interview</h3>
+  <div>
+    <ol class="list-decimal space-y-3 pl-4">
+      <li class="text-slate-100">
+        <p>
+          <b>outline requirements:</b> functional requirements and non-functional.
+          Functional - what the user wants to do. Login, post, like, ...
+          Non-Functional - low latency, scalable to N users.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>core entities:</b> What are the things that will persist, and that the api will exchange.
+          Think Database objects, and data objects that will make up your system.
+          A user, an event, a ticket, a message, ...
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>API or Interface:</b> Outline the APIs needed to implement your system.
+          Rest endpoints, hateoas, graphql, ...
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>High Level Design:</b> Draw boxes and components that meet the functional requirements at a high level.
+          What servers do you need?
+          What Database do you need?
+          Caching?
+          Storage?
+          Platform?
+          Media?
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Deep Dive:</b> Go through and talk about how the following system can meet the non-functional requirements.
+          What works?
+          What needs to be changed?
+          How do we scale?
+        </p>
+      </li>
+    </ol>
+  </div>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">What are you evaluated on?</h3>
+  <p class="text-slate-100">
+    problem solving ability, technical knowledge of technologies, communication, and if you can design a solution and discuss the architectures and tradeoffs for your choices.
+  </p>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">What Are The Fundamentals</h2>
+  <div>
+    <ol class="list-decimal space-y-3 pl-4">
+      <li class="text-slate-100">
+        <p>
+          <b>Storage:</b> What are different forms of storage?
+          Relational, Document Based, Key-Value. What is ACID?
+          What is BASE?
+          What access patterns do you use?
+          What are the tradeoffs for each system?
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Scalability:</b> How do we scale to support more users and requests?
+          How do we scale compute?
+          Vertical and horizontal.
+          How do we scale storage?
+          Sharding, Partitioning, Consistent hashing.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Networking:</b> Know OSI model.
+          Application layer (7), Transport Layer (4), Network Layer (3).
+          Application layer is http/https protocols, rest vs graphql vs gRPC, RESTful semantics, DNS resolution, Websockets vs SSE.
+          Transport Layer is tcp vs udp, and the request response lifecycle.
+          Network Layer is Load Balancing, Firewalls, and Access Control Lists.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Latency, Throughput, And Performance:</b> Know how long certain operations take.
+          Ram 100ns, SSD .1-.2ms, HDD 1-2ms, same region network call 1-10ms, cross region network call ~50ms.
+          What techniques can you use to improve the following? Caching, batch processing, minification, compression.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Fault Tolerance and Redundancy:</b> Replication strategies, redundancy, monitoring and detection.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>CAP Theorem:</b> Consistency, Availability, Partition Tolerence. You can have 2 of the 3.
+          Partition tolerance is almost always guaranteed, so you just have to choose between consistency and availability.
+        </p>
+      </li>
+    </ol>
+  </div>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">How To Familiarize Your Self With Basic Building Blocks</h2>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">Components</h3>
+
+  <div>
+    <ul class="list-disc space-y-3 pl-4">
+      <li class="text-slate-100">
+        <p>
+          <b>Database:</b> This is where the data lives, and is the primary form of data storage.
+          Traditional - sql
+          reddis - key value
+          most scale well
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Cache:</b> stores frequently accessed data so you don't need to hit the database over and over.
+
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Message Queue:</b> Put messages in a queue so they can be serviced when your system has the time.
+          This is good for handling spikes in traffic/load, but it also has its own set of challenges you should be aware of.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Load Balancing:</b> Traffic control for your incoming requests. It directs the requests to the different servers so that no single server gets overwhelmed.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>Blob Storage:</b> This is the storage of large files and videos. Unstructured media and large text files.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          <b>CDN:</b> This is a cache for assets and media - your blob storage.
+          This lets you have the big things be closer to the client to make it faster for them to get content.
+        </p>
+      </li>
+    </ul>
+  </div>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">How To Work Backwards From Common Problems To Build a Deeper Unerstanding</h2>
+  <p class="text-slate-100">
+    Most learning comes from core problems start with the following:
+  </p>
+  <br/>
+
+  <div>
+    <ul class="list-disc pl-4">
+      <li class="text-slate-100">
+        <p>
+          bitly
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          dropbox
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          ticket master
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          news feed
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          whats app
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          leet code
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          uber
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          web crawler
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          ad click aggregator
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          post search
+        </p>
+      </li>
+    </ul>
+  </div>
+  <br/>
+
+  <p class="text-slate-100">
+    Practice doing a whiteboard interview for one of the problems, then study a guide for the problem.
+    What did you get right?
+    What did you get wrong?
+    What did you learn?
+    Where do you need to improve?
+    Do some research and then move onto the next problem.
+    Do this over and over until you understand all the problems.
+  </p>
+</div>
+{{/section}}
