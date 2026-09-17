@@ -58,14 +58,14 @@ class Game {
   }
 
   gameLoop() {
-    this.time = performance.now();
-
     if (this.quit_game === true) { return; }
 
-    this.update();
-    this.draw();
+    if (this.waitTime() == 0) {
+        this.update();
+        this.draw();
+    }
 
-    setTimeout(() => { this.gameLoop(); }, this.waitTime());
+    requestAnimationFrame(() => this.gameLoop());
   }
 
   addComponent(component) {
@@ -906,7 +906,7 @@ function run() {
   const canvas = document.getElementById("tutorial");
   const ctx = canvas.getContext("2d");
 
-  let game = new Game(canvas.width, canvas.height, 80, ctx);
+  let game = new Game(canvas.width, canvas.height, 85, ctx);
 
   gen_num = () => {
     let num1 = Math.floor(Math.random() * game.width);
