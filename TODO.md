@@ -103,7 +103,8 @@ and two files (`project.handlebars`, `note.handlebars`) have already drifted to
 - [-] `public/javascript/fetch.js:910` — `gen_num = () => {...}` has no declaration keyword, creating an implicit global. Fine in a classic script, throws in a module.
 ^^^^ not important
 
-- [ ] `public/javascript/fetch.js:63` — `gameLoop` drives itself with `setTimeout` against a manual 80fps budget. Use `requestAnimationFrame`: correct primitive, and it stops burning CPU on a hidden tab.
+- [x] `public/javascript/fetch.js:63` — `gameLoop` drives itself with `setTimeout` against a manual 80fps budget. Use `requestAnimationFrame`: correct primitive, and it stops burning CPU on a hidden tab.
+^^^^ this worked out really well, I was still able to set a specific feamerate.
 
 - [-] `public/javascript/fetch.js:906` — no guard for a missing `#tutorial` canvas
 ^^^^ not important
