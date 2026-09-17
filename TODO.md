@@ -91,14 +91,25 @@ and two files (`project.handlebars`, `note.handlebars`) have already drifted to
 
 ## Phase 3 — Bugs
 
-- [ ] `public/javascript/fetch.js:87` — `removeComponent(component)` ignores its parameter and always splices the first component named `"Ball"`. Works only because balls are the sole thing ever removed.
-- [ ] `public/javascript/sudoku.js:152` and `:163` — both index cells as `row*board.rows+col`; should be `board.cols`. Identical for a 9x9, so latent, but it bites on generalizing.
-- [ ] `public/javascript/sudoku-board.js:69` — `/[1-9]/.test(...)` is unanchored, so `"a1"` passes. Only `maxlength="1"` saves it. Make it `/^[1-9]$/`.
-- [ ] `views/note.handlebars` — three `hx-get` attributes point at `/note/open/useful-links`, `/note/open/python`, `/note/open/golang`. No such views exist, so HTMX fires on every click, 404s, and declines to swap. Either build the partial endpoints or strip the attributes. (This is why "htmx integration" is still unchecked in the README.)
-- [ ] `public/javascript/fetch.js:910` — `gen_num = () => {...}` has no declaration keyword, creating an implicit global. Fine in a classic script, throws in a module.
+- [-] `public/javascript/fetch.js:87` — `removeComponent(component)` ignores its parameter and always splices the first component named `"Ball"`. Works only because balls are the sole thing ever removed.
+^^^^^ not important
+- [-] `public/javascript/sudoku.js:152` and `:163` — both index cells as `row*board.rows+col`; should be `board.cols`. Identical for a 9x9, so latent, but it bites on generalizing.
+^^^^ not important
+- [-] `public/javascript/sudoku-board.js:69` — `/[1-9]/.test(...)` is unanchored, so `"a1"` passes. Only `maxlength="1"` saves it. Make it `/^[1-9]$/`.
+^^^^ not important
+
+- [x] `views/note.handlebars` — three `hx-get` attributes point at `/note/open/useful-links`, `/note/open/python`, `/note/open/golang`. No such views exist, so HTMX fires on every click, 404s, and declines to swap. Either build the partial endpoints or strip the attributes. (This is why "htmx integration" is still unchecked in the README.)
+
+- [-] `public/javascript/fetch.js:910` — `gen_num = () => {...}` has no declaration keyword, creating an implicit global. Fine in a classic script, throws in a module.
+^^^^ not important
+
 - [ ] `public/javascript/fetch.js:63` — `gameLoop` drives itself with `setTimeout` against a manual 80fps budget. Use `requestAnimationFrame`: correct primitive, and it stops burning CPU on a hidden tab.
-- [ ] `public/javascript/fetch.js:906` — no guard for a missing `#tutorial` canvas
-- [ ] Rebind the collapsible handler after HTMX swaps — `views/partials/header.handlebars` binds once at load
+
+- [-] `public/javascript/fetch.js:906` — no guard for a missing `#tutorial` canvas
+^^^^ not important
+
+- [-] Rebind the collapsible handler after HTMX swaps — `views/partials/header.handlebars` binds once at load
+^^^^ I have javascript to handle the opening and closing, so htmx is not needed for that.
 
 ---
 
