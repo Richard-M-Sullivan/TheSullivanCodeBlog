@@ -1,11 +1,14 @@
 {
   "scripts": {
     "prod_start": "cross-env NODE_ENV=production node TheSullivanCodeBlog.js",
-    "start": "cross-env NODE_ENV=development node TheSullivanCodeBlog.js"
+    "start": "cross-env NODE_ENV=development node TheSullivanCodeBlog.js",
+    "gen-blog": "node tools/gen-blog-page > views/blog.handlebars"
   },
   "dependencies": {
     "express": "^5.2.1",
-    "express-handlebars": "^8.0.4"
+    "express-handlebars": "^8.0.4",
+    "handlebars": "^4.7.9",
+    "unicode-spinner": "^1.0.0"
   },
   "devDependencies": {
     "cross-env": "^10.1.0"
