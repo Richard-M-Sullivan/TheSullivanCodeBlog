@@ -1,0 +1,201 @@
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl">
+    CAP Theorem Notes
+  </h1>
+  <br/>
+
+
+  <h2 class="text-orange-500 font-bold">What This Section Covers:</h2>
+  <p class="text-slate-100">This section covers CAP theorem, what it is, and how to use it to make decisons.</p>
+{{/section}}
+
+
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl">
+    CAP Theorem
+  </h1>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">What is CAP Theorem</h2>
+  <p class="text-slate-100">
+    The CAP in CAP Theorem stands for Consistency, Availability, and Partition Tolerence.
+    The idea is that between these three properties we are only able to have two at a time.
+  </p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">Consistency</h2>
+  <p class="text-slate-100">
+    All nodes/users have access to the same data at the same time.
+    This may be an important feature of say a banking or stock app, where you want the information to be as accurate as possible and avoid the situation where two users get different datapoints and metrics.
+    Imagine that User A pulls out money from an account while User B is trying to pay for an item.
+    User B would need to know how much money is left in the account before he buys the item and vice versa.
+    If he tries to pay and the application gives an old value for the money, he could over spend.
+  </p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">Availability</h2>
+  <p class="text-slate-100">
+    This means that the server will always send back a response.
+    It will respond to every request even if there is a failure.
+  </p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">Partition Tolerence</h2>
+  <p class="text-slate-100">
+    The system works dispite failures between nodes.
+  </p>
+  <br/>
+
+{{/section}}
+
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl">
+    How To Apply CAP Theory To An Interview
+  </h1>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">
+    Consistency or Availability?
+  </h2>
+  <br/>
+
+  <p class="text-slate-100">
+    In an interview you should first outline the functional requirements of the system.
+    This means listing out what it should do for users and describe what the application should do.
+  </p>
+  <br/>
+
+  <p class="text-slate-100">
+    The second thing is to talk about the non-functional requirements.
+    This is the underlying system design that has an impact on performance characteristics of the application.
+    This is where you would use CAP Theorem.
+  </p>
+  <br/>
+
+  <p class="text-slate-100">
+    In a system, we always want partition tolerance because we don't want to have parts of the application fail if we want to expand to multiple nodes.
+    The only major decison left is between availability and consistency.
+  <p>
+  <br/>
+
+  <p class="text-slate-100">
+    Imagine that we have a server in the United States and one in Europe.
+    We replicate data from one server to the other to keep information the same between the two systems.
+    Imagine now that the servers get disconnected from eachother.
+    Now, the servers may have stale data.
+    If a user requests some data from the server during this state, do we give them stale data or an error?
+  <p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">
+    Consistency
+  </h3>
+  <p class="text-slate-100">
+   Consistency is good for applications where having stale data would be catestrophic. Think banking, booking, ticketing, and inventory systems.
+   In these systems having accurate data is important to make decisions, which is where having consistency would be the most important.
+   Ask: do the users need to see the most up to date information in my system?
+   Ask: if users are given stale information, would it be catestrophic?
+   If the answers to those are yes, than choose consistency.
+  </p>
+  <br/>
+
+  <h3 class="text-slate-100 font-bold">
+    Availability
+  </h3>
+  <p class="text-slate-100">
+    Availability is good for anything where consistency is not needed.
+    Availability is usually the default that people lean towards.
+    Availability is good for social media sites and business sites where you just want to be available to your users.
+  </p>
+{{/section}}
+
+{{#>section}}
+  <h1 class="text-orange-500 text-3xl">
+    How does the effect my design decisions?
+  </h1>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">
+    How Does Consistency Effect My Design Decisions?
+  </h2>
+  <br>
+
+  <div>
+    <ul class="list-disc space-y-3 pl-4">
+      <li class="text-slate-100">
+        <p>
+          distributed transactions - an update in one node propogates to all nodes.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          single node
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          higher latency
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          consensus protocols
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          database options:
+        </p>
+        <p>
+          postgresql, google spanner, SQL
+        </p>
+      </li>
+    </ul>
+  </div>
+  <br/>
+
+  <p class="text-slate-100">
+    Usually you would use a traditional relational database management system.
+    You can use nosql, but it is not as common for this type of application.
+  </p>
+  <br/>
+
+  <h2 class="text-orange-500 font-bold">
+    How Does Availability Effect My Design Decisions?
+  </h2>
+  <br/>
+
+  <div>
+    <ul class="list-disc space-y-3 pl-4">
+      <li class="text-slate-100">
+        <p>
+          Eventuall consistency is good.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          Don't need to be consistent this moment, but gradually trend toward consistency over time.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          You can have multiple replicas
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          change data capture - CDC
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          database options:
+        </p>
+        <p>
+          dynamodb, cassandra
+        </p>
+      </li>
+    </ul>
+  </div>
+  <br/>
+{{/section}}
