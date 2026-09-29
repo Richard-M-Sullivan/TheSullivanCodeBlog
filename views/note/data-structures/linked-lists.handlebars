@@ -13,29 +13,26 @@
   <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
     Traversing A Linked List
   </h1>
-  <br/>
-
   <p class="text-slate-100">
     To traverse a linked list, we create a node pointer and set it to point to the head of the list.
     Then, in a while loop, we iterate as long as the current node is not null.
     This ensures that we traverse every element of the list without going out of bounds.
   </p>
+  <br/>
+
   <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
     Reading From A Linked List
   </h1>
-  <br/>
-
   <p class="text-slate-100">
     To read from a linked list, we start at the head, and traverse the list to get to the node that we want.
     Because the nodes are not together in memory, we have to find the next node through the current node's next pointer.
     This means that accessing elements in the middle or end of a linked list really slow, but accessing the first and last elements are still really fast operations.
   </p>
+  <br/>
 
   <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
     Adding An Elemet To A Linked List
   </h1>
-  <br/>
-
   <p class="text-slate-100">
     To add an element to a linked list we create a new node.
     Then we traverse the list to find the position or index that we want to insert the new node.
@@ -43,24 +40,22 @@
     Temporary variables will need to be made to keep track of the pointers for reassignment.
     The nice thing about linked lists is that the time it takes to insert elements in the beginning of the list is faster than the array since you don't have to shift all the values over to make space.
   </p>
+  <br/>
 
   <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
     Deleting An Element From A Linked List
   </h1>
-  <br/>
-
   <p class="text-slate-100">
     Removing an element from a linked list is another operation that linked lists are good at.
     You traverse the list to the index of the node to be deleted.
     Then you make the previous node's next pointer point to the current nodes next pointer.
     This is nice because no values need to be shifted to complete the operation like in the array.
   </p>
+  <br/>
 
   <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
     What are Linked Lists Good For?
   </h1>
-  <br/>
-
   <p class="text-slate-100">
     Linked lists are good for when you want to access the beginning and end of a list a lot.
     This is because you can save pointers to the head and tail of the list making it fast to access them.
@@ -72,6 +67,6 @@
     Even though a linked list needs to hold more information per node than an array, the linked list is able to spread out the nodes across many areas of memory instead of being in a continuous block.
     This makes it easier for a linked list to fit data in all the nooks and crannies of computer memory, filling spaces that an array wouldn't be able to fit in.
   </p>
-
+  <br/>
   
 {{/section}}
