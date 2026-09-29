@@ -23,7 +23,7 @@
   </p>
   <br/>
 
-  <h3 class="text-slate-100 font-bold">Consistency</h2>
+  <h3 class="text-slate-100 font-bold">Consistency</h3>
   <p class="text-slate-100">
     All nodes/users have access to the same data at the same time.
     This may be an important feature of say a banking or stock app, where you want the information to be as accurate as possible and avoid the situation where two users get different datapoints and metrics.
@@ -33,14 +33,14 @@
   </p>
   <br/>
 
-  <h3 class="text-slate-100 font-bold">Availability</h2>
+  <h3 class="text-slate-100 font-bold">Availability</h3>
   <p class="text-slate-100">
     This means that the server will always send back a response.
     It will respond to every request even if there is a failure.
   </p>
   <br/>
 
-  <h3 class="text-slate-100 font-bold">Partition Tolerence</h2>
+  <h3 class="text-slate-100 font-bold">Partition Tolerence</h3>
   <p class="text-slate-100">
     The system works dispite failures between nodes.
   </p>
@@ -158,6 +158,36 @@
     Usually you would use a traditional relational database management system.
     You can use nosql, but it is not as common for this type of application.
   </p>
+
+  <h2 class="text-orange-500 font-bold">
+    Types of Consistency
+  </h2>
+  <br/>
+
+  <div>
+    <ul class="list-disc space-y-3 pl-4">
+      <li class="text-slate-100">
+        <p>
+          Strong consistency - This is where all reads see the most recent write.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          Casual consistency - related events will appear in order. 
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          read your writes - This is where you see your data consistently.
+        </p>
+      </li>
+      <li class="text-slate-100">
+        <p>
+          eventual consistenct - updates will propogate eventually.
+        </p>
+      </li>
+    </ul>
+  </div>
   <br/>
 
   <h2 class="text-orange-500 font-bold">
