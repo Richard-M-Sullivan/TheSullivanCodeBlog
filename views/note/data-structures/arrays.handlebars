@@ -1,0 +1,54 @@
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
+    Arrays
+  </h1>
+  <p class="text-slate-100">
+    Array are a one dimensional data structure.
+    You can think of an array as a long list of data.
+    Generally arrays are static, meaning they do not change in size.
+    Another property that is typical an array is that each element is the same type/size.
+  </p>
+{{/section}}
+
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
+    Reading From An Array
+  </h1>
+  <br/>
+
+  <p class="text-slate-100">
+    To read from an array, you use an index.
+    The index refers to the element number that you want to look at.
+    Index values start at 0, so if you want to view the first element of an array you would check the value at index 0.
+    The reason for this is that arrays fit in memory linearly.
+    The index is the offset in memory from the first value.
+    This property makes it extremely fast to randomly access any element in the array, which is why arrays are awesome!
+  </p>
+
+  <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
+    Writing To An Array
+  </h1>
+  <br/>
+
+  <p class="text-slate-100">
+    You are able to write anywhere in an array using the index.
+    You specify an element that you want to write to, and then store a value there.
+    Array elements can be written in any order, but it is usually best to try and keep your data tightly packed.
+    If you want to add an element to an array it can be helpful to maintain a count that tells you how many values are in the array so you can write to the end.
+    Because arrays do not change size, be careful not to add more elements to the array than the array has space for.
+  </p>
+
+  <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
+    Deleting From An Array
+  </h1>
+  <br/>
+
+  <p class="text-slate-100">
+    When you delete from an array it can be from anywhere, not just the end.
+    Usually if you delete from the beginning or the end it will leave a hole that you will want to fill up.
+    You can either keep track of your holes, or you can shift all the elements over to remove the holes.
+    This can take a lot of time if deleting is a common operation, so keep that in mind.
+    With that being said, arrays are such an efficient structure that even having thousands of shifts is often still faster than having a linked list.
+  </p>
+
+{{/section}}

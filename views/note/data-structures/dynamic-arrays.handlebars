@@ -1,0 +1,26 @@
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
+    Dynamic Arrays
+  </h1>
+  <p class="text-slate-100">
+    A dynamic array is just like an array except that the size is not static.
+    A dynamic array can grow and shrink to meet your needs while the program is running.
+  </p>
+{{/section}}
+
+{{#> section}}
+  <h1 class="text-orange-500 text-3xl" class="text-orange-500 text-3xl">
+    How Do Dynamic Arrays Change Size
+  </h1>
+  <br/>
+
+  <p class="text-slate-100">
+    The underlying structure of a dynamic array is a regular array.
+    To make it dynamic we need to do some extra book keeping.
+    We need to store a count, which is the number of elements in the array.
+    We also need to store the capacity, which is the size of the underlying array.
+    When someone inserts into the array, we add the element at the end of the list, but if the array is full, then we create a new larger array and copy all the values from the original array into the new one.
+    This can be an expensive operation, but since the operation is rare, it is still very performant.
+  </p>
+
+{{/section}}
