@@ -1,0 +1,46 @@
+# TheSullivanCodeBlog systemd unit
+#
+# Install:
+#   sudo mkdir -p /etc/sullivancodeblog
+#   sudo cp deploy/blog.env.example /etc/sullivancodeblog/blog.env
+#   sudo $EDITOR /etc/sullivancodeblog/blog.env      # fill in APP_DIR, NODE_BIN, PORT
+#   sudo chmod 640 /etc/sullivancodeblog/blog.env
+#   sudo cp deploy/sullivancodeblog.service /etc/systemd/system/
+#
+# systemd does NOT expand environment variables in User=/Group=, so set those
+# with a drop-in (also not in the repo):
+#   sudo systemctl edit sullivancodeblog
+# and enter:
+#   [Service]
+#   User=<your-user>
+#   Group=<your-group>
+#
+# Then:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now sullivancodeblog
+#
+# Day to day:
+#   sudo systemctl restart sullivancodeblog
+#   sudo systemctl status sullivancodeblog
+#   journalctl -u sullivancodeblog -f
+
+[Unit]
+Description=TheSullivanCodeBlog
+After=network.target
+
+[Service]
+Type=simple
+User=thesullivancodeblog
+
+EnvironmentFile=/etc/sullivancodeblog/blog.env
+
+# WorkingDirectory= cannot read env vars, so cd inside the shell instead.
+# `$$` is passed through to sh as a literal `$`, so the shell does the
+# expansion; `exec` replaces sh with node, keeping this a single process.
+ExecStart=/bin/sh -c 'cd "$$APP_DIR" && exec "$$NODE_BIN" TheSullivanCodeBlog.js'
+
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

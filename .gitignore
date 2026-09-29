@@ -33,3 +33,6 @@ node_modules
 
 #vscode config
 .vscode
+
+# server-specific systemd env files
+deploy/*.env
